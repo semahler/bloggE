@@ -11,8 +11,3 @@ define ('CONTROLLER_DIR', APP_DIR . 'controller/');
 define ('DATA_DIR', APP_DIR . 'data/');
 define ('CORE_DIR', APP_DIR . 'core/');
 
-/**
- * Array to store all valid routes
- */
-
-$routes = [];
