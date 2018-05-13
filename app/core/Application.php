@@ -8,30 +8,15 @@ class Application
 
     public function __construct()
     {
-        //echo $_SERVER['REQUEST_URI'];
-    }
-
-    public function run()
-    {
         $this->prepareUrl();
 
         if (file_exists(CONTROLLER_DIR . $this->controller . '.php')) {
-
-            require_once CONTROLLER_DIR . $this->controller . '.php';
             $this->controller = new $this->controller;
 
             if (method_exists($this->controller, $this->action)) {
                 call_user_func_array([$this->controller, $this->action], $this->params);
             }
         }
-
-        echo 'Controller:' . $this->controller . "<br />";
-        echo 'Action:' . $this->action . "<br />";
-
-        echo 'Parameter:<br />';
-        echo '<pre>';
-        print_r($this->params);
-        echo '</pre>';
     }
 
     protected function prepareUrl()
