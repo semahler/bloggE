@@ -40,6 +40,9 @@ class Application
             }
             unset($requestUrl[0], $requestUrl[1]);
 
+            $this->action = str_replace('-', '', ucwords($this->action, '-'));
+            $this->action = $str = lcfirst($this->action);
+
             if (isset($requestUrl)) {
                 $this->params = array_values($requestUrl);
             }

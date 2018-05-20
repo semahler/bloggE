@@ -5,10 +5,21 @@ class indexController extends Controller
     public function indexAction()
     {
         $this->view('index/index',
-            ['title' => 'Titel']
+            [
+                'title' => 'Titel'
+            ]
         );
 
         $this->view->render();
+    }
+
+    public function readAction()
+    {
+        $this->view('index/read',
+            [
+                'title' => ''
+            ]
+        );
     }
 
 }
