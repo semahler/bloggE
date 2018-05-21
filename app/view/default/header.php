@@ -4,23 +4,42 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
-    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/uikit.css"/>
+    <link rel="stylesheet" href="/static/css/styles.css"/>
 
+    <script type="text/javascript" src="/static/js/uikit.js"></script>
+    <script type="text/javascript" src="/static/js/uikit-icons.js"></script>
     <title><?php echo isset($this->view_data['title']) ? $this->view_data['title'] : 'bloggE - Startseite'; ?></title>
 </head>
 <body>
-<header>
-    <h1>bloggE</h1>
-    <nav>
-        <ul>
-            <li><a href="#link_1.html">Startseite</a></li>
-            <li><a href="#link_2.html">Unterseite 1</a></li>
-            <li><a href="#link_3.html">Unterseite 2</a></li>
-            <li><a href="#link_4.html">Kontakt</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #sticky-dropdown">
+            <nav class="uk-navbar-container uk-box-shadow-small">
+                <div class="uk-container">
+                    <div uk-navbar>
+                        <div class="uk-navbar-left">
+                            <ul class="uk-navbar-nav">
+                                <li class="uk-active"><a href="/">Home</a></li>
+                                <li>
+                                    <a href="#">Admin</a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                                            <li class=""><a href="/admin/new-post">New Post</a></li>
+                                            <li class=""><a href="/admin/edit-post">Edit Post</a></li>
+                                            <li class=""><a href="/admin/upload-picture">Upload Pictures</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="uk-navbar-center">
+                            <a class="uk-logo" href="#">Logo</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
 
+    <main>
 
