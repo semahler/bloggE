@@ -20,6 +20,8 @@ class indexController extends Controller
                 'title' => ''
             ]
         );
+
+        $this->view->render();
     }
 
 }
