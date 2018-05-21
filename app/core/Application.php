@@ -41,10 +41,14 @@ class Application
             unset($requestUrl[0], $requestUrl[1]);
 
             $this->action = str_replace('-', '', ucwords($this->action, '-'));
-            $this->action = $str = lcfirst($this->action);
 
-            if (isset($requestUrl)) {
+            $this->action = $str = lcfirst($this->action);
+            if (!empty($requestUrl)) {
                 $this->params = array_values($requestUrl);
+            }
+
+            if (!empty($_POST)) {
+                $this->params = array_merge($this->params, $_POST);
             }
 
         }
