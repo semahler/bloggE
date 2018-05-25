@@ -62,7 +62,7 @@ class Post
         $fileName = "post.json";
 
         $handle = fopen($fileName, 'w+');
-        fwrite($handle, $fileName);
+        fwrite($handle, $jsonString);
 
         fclose($handle);
     }
