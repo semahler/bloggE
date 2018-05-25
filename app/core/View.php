@@ -2,9 +2,6 @@
 
 class View
 {
-
-
-
     protected $view_file;
     protected $view_data;
 

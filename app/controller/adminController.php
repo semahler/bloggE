@@ -36,4 +36,10 @@ class adminController extends Controller
         $this->view->render();
     }
 
+    public function savePostAction($post_title, $post_content, $post_created_at = '')
+    {
+        $post = new Post($post_title, $post_content, $post_created_at);
+        $post->savePost();
+    }
+
 }
