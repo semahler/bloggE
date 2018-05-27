@@ -12,6 +12,7 @@
     <script type="text/javascript" src="/static/js/uikit.js"></script>
     <script type="text/javascript" src="/static/js/uikit-icons.js"></script>
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <script src="/static/js/scripts.js"></script>
 
     <title><?php echo isset($this->view_data['title']) ? $this->view_data['title'] : 'bloggE - Startseite'; ?></title>
 </head>
