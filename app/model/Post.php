@@ -37,7 +37,7 @@ class Post
     protected function createPostDirectory()
     {
         if(!is_dir($this->directoryPath)) {
-            mkdir($this->directoryPath, 0755);
+            mkdir($this->directoryPath, 0755, true);
         }
     }
 
@@ -59,9 +59,10 @@ class Post
 
     protected function writeJsonStringToFile($jsonString)
     {
-        $fileName = "post.json";
+        $fileName = $this->directoryPath . '/post.json';
 
-        $handle = fopen($fileName, 'w+');
+        $handle = fopen($fileName, 'w');
+
         fwrite($handle, $jsonString);
 
         fclose($handle);

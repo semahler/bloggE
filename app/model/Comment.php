@@ -47,7 +47,7 @@ class Comment
 
     protected function writeJsonStringToFile($jsonString)
     {
-        $fileName = "comments.json";
+        $fileName = $this->directoryPath . '/comments.json';
 
         $handle = fopen($fileName, 'a');
         fwrite($handle, $jsonString);
