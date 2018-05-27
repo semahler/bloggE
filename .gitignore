@@ -1,2 +1,5 @@
-#IDE
+# IDE
 .idea
+
+# data directory
+/app/data/*
