@@ -1,4 +1,4 @@
-<form class="uk-form-stacked" action="admin/save/" method="POST">
+<form class="uk-form-stacked" action="/admin/save-post/" method="POST">
 
     <div class="uk-margin">
         <label class="uk-form-label" for="title">Title</label>
@@ -13,6 +13,8 @@
             <textarea class="uk-textarea" rows="15"  name="content" value="<?php echo $this->view_data['post_content']; ?>" placeholder="Content of the post"></textarea>
         </div>
     </div>
+
+    <input type="hidden" name="createdAt" value="<?php echo $this->view_data['post_created_at']; ?>" />
 
     <hr />
 
