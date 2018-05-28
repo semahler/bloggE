@@ -37,6 +37,16 @@
                     ?>
                 </ul>
             </div>
+
+            'paginationSites'
+            currentPage
+
         </div>
+
+        <?php
+
+        include_once 'pagination.php'
+
+        ?>
     </div>
 </div>
