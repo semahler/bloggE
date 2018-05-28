@@ -2,8 +2,9 @@
 
 class indexController extends Controller
 {
-    public function indexAction()
+    public function pageAction($page = 1)
     {
+        echo $page;
         $this->view('index/index',
             [
                 'title' => 'Titel'

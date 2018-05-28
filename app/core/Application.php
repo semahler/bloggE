@@ -34,7 +34,7 @@ class Application
                 $this->controller = $requestUrl[0].'Controller';
             }
 
-            $this->action = 'indexAction';
+            $this->action = 'pageAction';
             if ($requestUrl[1]) {
                 $this->action = $requestUrl[1].'Action';
             }
