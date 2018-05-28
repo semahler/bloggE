@@ -1,5 +1,7 @@
 <?php
 
+
+
 class PostReader
 {
     protected $directoryPath;
@@ -72,8 +74,11 @@ class PostReader
 
     protected function preparePostData($post)
     {
+        $Parsedown = new Parsedown();
+
+        $post['post_content'] = $Parsedown->text($post['post_content']);
         $post['post_createdAt'] = date('d/m/Y H:i', $post['post_createdAt']);
-        $post['post_updated'] = date('d/m/Y H:i', $post['post_updated']);
+        $post['post_updatedAt'] = date('d/m/Y H:i', $post['post_updatedAt']);
 
         return $post;
     }

@@ -17,8 +17,8 @@
                             <span data-uk-icon="icon: clock"></span> |
                             Written on <?php echo $post['post_createdAt']; ?>
                             <?php
-                            if ($post['post_createdAt'] != $post['post_updated']) {
-                                echo "|" . $post['post_updated'];
+                            if ($post['post_createdAt'] != $post['post_updatedAt']) {
+                                echo "|" . $post['post_updatedAt'];
                             }
                             ?>
                     </header>
