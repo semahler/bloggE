@@ -6,7 +6,8 @@ class indexController extends Controller
     {
         $this->view('index/index',
             [
-                'title' => 'Titel'
+                'title' => 'bloggE - Blogging Platform',
+                'posts' => []
             ]
         );
 
