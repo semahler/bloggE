@@ -15,7 +15,7 @@ class indexController extends Controller
             $posts[] = $postReader->getPost();
         }
 
-        $pagination = $this->getPagination(8, $page);
+        $pagination = $this->getPagination(sizeof($posts), $page);
 
         $this->view('index/index',
             [
