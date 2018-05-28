@@ -14,3 +14,5 @@ define ('VIEW_DIR', APP_DIR . 'view/');
 define ('PAGE_HEAD_TEMPLATE_PATH', VIEW_DIR . 'default/header.php');
 define ('PAGE_FOOT_TEMPLATE_PATH', VIEW_DIR . 'default/footer.php');
 
+define ('POST_PER_PAGE', 3);
+

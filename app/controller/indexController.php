@@ -4,10 +4,13 @@ class indexController extends Controller
 {
     public function pageAction($page = 1)
     {
-        echo $page;
+        $pagination = $this->getPagination(8, $page);
+
         $this->view('index/index',
             [
-                'title' => 'Titel'
+                'title' => 'Titel',
+                'pagination' => $pagination
+
             ]
         );
 
@@ -23,6 +26,28 @@ class indexController extends Controller
         );
 
         $this->view->render();
+    }
+
+    protected function getPagination($numberOfPosts, $currentPage)
+    {
+        $paginationArr = [];
+
+        $numberOfSites = ceil($numberOfPosts / POST_PER_PAGE);
+
+        for ($i = 1; $i <= $numberOfSites; $i++) {
+
+            $class = "";
+            if ($currentPage == $i) {
+                $class = "uk-active";
+            }
+
+            $paginationArr[$i] = [
+                'href' => '/index/page/' . $i,
+                'class' => $class
+            ];
+        }
+
+        return $paginationArr;
     }
 
 }
