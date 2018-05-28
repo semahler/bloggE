@@ -7,7 +7,7 @@ class adminController extends Controller
     {
         $this->view('admin/new-post',
             [
-                'title' => 'Neuen PostWriter erstellen'
+                'title' => 'Create a new post'
             ]
         );
 
@@ -18,7 +18,7 @@ class adminController extends Controller
     {
         $this->view('admin/edit-post',
             [
-                'title' => "PostWriter bearbeiten"
+                'title' => 'Edit post'
             ]
         );
 
@@ -29,7 +29,7 @@ class adminController extends Controller
     {
         $this->view('admin/upload-picture',
             [
-                'title' => "Bild hochladen"
+                'title' => "Upload pictures"
             ]
         );
 

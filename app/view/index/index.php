@@ -5,7 +5,7 @@
 
                 <?php
                 if (is_array($this->view_data['posts']) && sizeof($this->view_data['posts']) > 0) {
-                    foreach ($post as $this->view_data['posts']) {
+                    foreach ($this->view_data['posts'] as $key => $post) {
                 ?>
                 <article class="uk-section uk-section-small uk-padding-remove-top">
                     <header>
@@ -13,8 +13,14 @@
                             <a title="<?php echo $post['post_title']; ?>" class="uk-link-reset"
                                href="#"><?php echo $post['post_title']; ?></a>
                         </h2>
-                        <p class="uk-article-meta">Written on <?php echo $post['post_created_at']; ?> | <span
-                                    data-uk-icon="icon: future"></span></p>
+                        <p class="uk-article-meta">
+                            <span data-uk-icon="icon: clock"></span> |
+                            Written on <?php echo $post['post_createdAt']; ?>
+                            <?php
+                            if ($post['post_createdAt'] != $post['post_updated']) {
+                                echo "|" . $post['post_updated'];
+                            }
+                            ?>
                     </header>
                     <p>
                         <?php echo $post['post_content']; ?>
