@@ -1,6 +1,6 @@
 <?php
 
-class Comment
+class CommentWriter
 {
     protected $author;
     protected $email;

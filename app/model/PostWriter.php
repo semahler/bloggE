@@ -1,6 +1,6 @@
 <?php
 
-class Post
+class PostWriter
 {
     protected $title;
     protected $content;
@@ -50,7 +50,7 @@ class Post
                 'post_title' => $this->title,
                 'post_content' => $this->content,
                 'post_createdAt' => $this->createdAt,
-                'post_updated' => $this->updatedAt
+                'post_updatedAt' => $this->updatedAt
             ]
         );
 

@@ -4,22 +4,41 @@
             <div class="uk-width-2-3@m">
 
                 <?php
-                for ($i = 1; $i <= 3; $i++) {
-               ?>
+                if (is_array($this->view_data['posts']) && sizeof($this->view_data['posts']) > 0) {
+                    foreach ($this->view_data['posts'] as $key => $post) {
+                ?>
                 <article class="uk-section uk-section-small uk-padding-remove-top">
                     <header>
-                        <h2 class="uk-margin-remove-adjacent uk-text-bold uk-margin-small-bottom"><a title="Fusce facilisis tempus magna ac dignissim." class="uk-link-reset" href="#">Fusce facilisis tempus magna ac dignissim.</a></h2>
-                        <p class="uk-article-meta">Written on March 23, 2018. Posted in <a href="#">Blog</a> | <span data-uk-icon="icon: future"></span> Takes 7 min reading.</p>
+                        <h2 class="uk-text-bold uk-margin-small-bottom">
+                            <a title="<?php echo $post['post_title']; ?>" class="uk-link-reset"
+                               href="#"><?php echo $post['post_title']; ?></a>
+                        </h2>
+                        <p class="uk-article-meta">
+                            <span data-uk-icon="icon: clock"></span> |
+                            Written on <?php echo $post['post_createdAt']; ?>
+                            <?php
+                            if ($post['post_createdAt'] != $post['post_updatedAt']) {
+                                echo "|" . $post['post_updatedAt'];
+                            }
+                            ?>
                     </header>
-                    <figure>
-                        <img src="https://picsum.photos/800/300/?random=3" alt="Alt text">
-                        <figcaption class="uk-padding-small uk-text-center uk-text-muted">Caption of the image</figcaption>
-                    </figure>
-                    <p>UPDATE 24th October 15.10 BST — Vivamus sed consequat urna. Fusce vitae urna sed ante placerat iaculis. Suspendisse potenti. Pellentesque quis fringilla libero. In hac habitasse platea dictumst.</p>
-                    <p>Ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    <a href="#" title="Read More" class="uk-button uk-button-default uk-button-small">READ MORE</a>
+                    <p>
+                        <?php echo $post['post_content']; ?>
+                    </p>
+                    <a href="#" title="Read More" class="uk-button uk-button-default uk-button-small">READ
+                        MORE</a>
                     <hr>
                 </article>
+                <?php
+                    }
+                } else {
+                ?>
+                    <article class="uk-section uk-section-small uk-padding-remove-top">
+                        <header>
+                            <h2 class="uk-text-bold uk-margin-small-bottom">No saved posts found.</h2>
+                            <h3> Create some new!</h3>
+                        </header>
+                    </article>
                 <?php
                 }
                 ?>
@@ -29,11 +48,11 @@
                 <h4 class="uk-heading-line uk-text-bold"><span>Latest Posts</span></h4>
                 <ul class="uk-list">
                     <?php
-                    foreach ($post as $lastestPosts) {
+                    //foreach ($latestPost as $lastestPosts) {
                     ?>
                         <li><a href="">Post</a></li>
                     <?php
-                    }
+                    //}
                     ?>
                 </ul>
             </div>

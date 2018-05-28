@@ -4,11 +4,23 @@ class indexController extends Controller
 {
     public function pageAction($page = 1)
     {
+        $postReader = new PostReader();
+        $postDirectories = $postReader->getPostDirectories();
+        $postDirectories = array_reverse($postDirectories);
+
+        $posts = [];
+        foreach ($postDirectories as $postDirectory) {
+            $postReader->setPostDirectory($postDirectory);
+
+            $posts[] = $postReader->getPost();
+        }
+
         $pagination = $this->getPagination(8, $page);
 
         $this->view('index/index',
             [
-                'title' => 'Titel',
+                'title' => 'bloggE - Blogging Platform',
+                'posts' => $posts,
                 'pagination' => $pagination
 
             ]

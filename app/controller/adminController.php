@@ -7,7 +7,7 @@ class adminController extends Controller
     {
         $this->view('admin/new-post',
             [
-                'title' => 'Neuen Post erstellen'
+                'title' => 'Create a new post'
             ]
         );
 
@@ -18,7 +18,7 @@ class adminController extends Controller
     {
         $this->view('admin/edit-post',
             [
-                'title' => "Post bearbeiten"
+                'title' => 'Edit post'
             ]
         );
 
@@ -29,7 +29,7 @@ class adminController extends Controller
     {
         $this->view('admin/upload-picture',
             [
-                'title' => "Bild hochladen"
+                'title' => "Upload pictures"
             ]
         );
 
@@ -38,18 +38,18 @@ class adminController extends Controller
 
     public function savePostAction($postTitle, $postContent, $postCreatedAt = '')
     {
-        $post = new Post();
+        $postWriter = new PostWriter();
 
-        $post->setPostData($postTitle, $postContent, $postCreatedAt);
-        $post->savePost();
+        $postWriter->setPostData($postTitle, $postContent, $postCreatedAt);
+        $postWriter->savePost();
     }
 
     public function saveCommentAction($commentAuthor, $commentEmail, $commentContent, $postCreatedAt)
     {
-        $comment = new Comment();
+        $commentWriter = new CommentWriter();
 
-        $comment->setCommentData($commentAuthor, $commentEmail, $commentContent, $postCreatedAt);
-        $comment->saveComment();
+        $commentWriter->setCommentData($commentAuthor, $commentEmail, $commentContent, $postCreatedAt);
+        $commentWriter->saveComment();
     }
 
 }
