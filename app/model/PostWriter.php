@@ -1,6 +1,6 @@
 <?php
 
-class Post
+class PostWriter
 {
     protected $title;
     protected $content;
