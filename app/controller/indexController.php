@@ -7,6 +7,7 @@ class indexController extends Controller
 
         $postReader = new PostReader();
         $postDirectories = $postReader->getPostDirectories();
+        $postDirectories = array_reverse($postDirectories);
 
         $posts = [];
         foreach ($postDirectories as $postDirectory) {
