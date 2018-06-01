@@ -29,11 +29,20 @@ class indexController extends Controller
         $this->view->render();
     }
 
-    public function readAction()
+    public function readAction($post_createdAt)
     {
+        if (!$post_createdAt) {
+
+        }
+
+        $postReader = new PostReader();
+        $postReader->setPostDirectory($post_createdAt);
+        $post = $postReader->getPost();
+
         $this->view('index/read',
             [
-                'title' => ''
+                'title' => $post['post_title'],
+                'post' => $post
             ]
         );
 

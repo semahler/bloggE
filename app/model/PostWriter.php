@@ -22,7 +22,7 @@ class PostWriter
             $this->createdAt = time();
         }
 
-        $directoryName = sprintf("Post_%s", $this->createdAt);
+        $directoryName = $this->createdAt;
         $this->directoryPath = DATA_DIR . $directoryName;
     }
 

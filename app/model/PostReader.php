@@ -77,6 +77,7 @@ class PostReader
         $Parsedown = new Parsedown();
 
         $post['post_content'] = $Parsedown->text($post['post_content']);
+        $post['post_url'] = '/index/read/' . $post['post_createdAt'];
         $post['post_createdAt'] = date('d/m/Y H:i', $post['post_createdAt']);
         $post['post_updatedAt'] = date('d/m/Y H:i', $post['post_updatedAt']);
 
