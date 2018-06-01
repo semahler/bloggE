@@ -25,7 +25,7 @@ class indexController extends Controller
 
         $this->view('index/index',
             [
-                'title' => 'bloggE - Blogging Platform',
+                'title' => DEFAULT_TITLE,
                 'posts' => $posts,
                 'pagination' => $pagination
 

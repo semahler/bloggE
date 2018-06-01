@@ -42,6 +42,8 @@ class adminController extends Controller
 
         $postWriter->setPostData($postTitle, $postContent, $postCreatedAt);
         $postWriter->savePost();
+
+        header('Location: /');
     }
 
 }

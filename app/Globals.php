@@ -14,8 +14,11 @@ define ('VIEW_DIR', APP_DIR . 'view/');
 define ('PAGE_HEAD_TEMPLATE_PATH', VIEW_DIR . 'default/header.php');
 define ('PAGE_FOOT_TEMPLATE_PATH', VIEW_DIR . 'default/footer.php');
 
+/**
+ * Defining some configuration values
+ */
 define ('POST_PER_PAGE', 3);
-
-define('FILENAME_POST', 'post.json');
-define('FILENAME_COMMENTS', 'comments.json');
+define ('FILENAME_POST', 'post.json');
+define ('FILENAME_COMMENTS', 'comments.json');
+define ('DEFAULT_TITLE', 'bloggE - Blogging Platform');
 
