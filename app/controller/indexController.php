@@ -8,11 +8,17 @@ class indexController extends Controller
         $postDirectories = $postReader->getPostDirectories();
         $postDirectories = array_reverse($postDirectories);
 
+        $commentReader = new CommentReader();
+
         $posts = [];
         foreach ($postDirectories as $postDirectory) {
             $postReader->setPostDirectory($postDirectory);
+            $post = $postReader->getPost();
 
-            $posts[] = $postReader->getPost();
+            $commentReader->setPostDirectory($postDirectory);
+            $post['post_comment_count'] = $commentReader->getCommentCountForPost();
+
+            $posts[] = $post;
         }
 
         $pagination = $this->getPagination(sizeof($posts), $page);
@@ -39,14 +45,27 @@ class indexController extends Controller
         $postReader->setPostDirectory($post_createdAt);
         $post = $postReader->getPost();
 
+        $commentReader = new CommentReader();
+        $commentReader->setPostDirectory($post_createdAt);
+        $comments = $commentReader->getComments();
+
         $this->view('index/read',
             [
                 'title' => $post['post_title'],
-                'post' => $post
+                'post' => $post,
+                'comments' => $comments
             ]
         );
 
         $this->view->render();
+    }
+
+    public function saveCommentAction($commentAuthor, $commentEmail, $commentContent, $postCreatedAt)
+    {
+        $commentWriter = new CommentWriter();
+
+        $commentWriter->setCommentData($commentAuthor, $commentEmail, $commentContent, $postCreatedAt);
+        $commentWriter->saveComment();
     }
 
     protected function getPagination($numberOfPosts, $currentPage)

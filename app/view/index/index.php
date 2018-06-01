@@ -21,6 +21,8 @@
                                 echo "|" . $post['post_updatedAt'];
                             }
                             ?>
+                            <span data-uk-icon="icon: comment"></span> |
+                            <?php echo $post['post_comment_count']; ?> comment(s)
                     </header>
                     <p>
                         <?php echo $post['post_content']; ?>
@@ -56,9 +58,6 @@
                     ?>
                 </ul>
             </div>
-
-            'paginationSites'
-            currentPage
 
         </div>
 
