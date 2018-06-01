@@ -9,20 +9,29 @@
                 ?>
                 <article class="uk-section uk-section-small uk-padding-remove-top">
                     <header>
-                        <h2 class="uk-text-bold uk-margin-small-bottom">
-                            <a title="<?php echo $post['post_title']; ?>" class="uk-link-reset"
-                               href="<?php echo $post['post_url']; ?>"><?php echo $post['post_title']; ?></a>
+                        <h2 class="uk-text-bold uk-margin-small-bottom uk-heading-line">
+                            <span>
+                                <a title="<?php echo $post['post_title']; ?>" class="uk-link-reset"
+                                   href="<?php echo $post['post_url']; ?>"><?php echo $post['post_title']; ?></a>
+                            </span>
                         </h2>
-                        <p class="uk-article-meta">
-                            <span data-uk-icon="icon: clock"></span> |
-                            Written on <?php echo $post['post_createdAt']; ?>
-                            <?php
-                            if ($post['post_createdAt'] != $post['post_updatedAt']) {
-                                echo "|" . $post['post_updatedAt'];
-                            }
-                            ?>
-                            <span data-uk-icon="icon: comment"></span> |
-                            <?php echo $post['post_comment_count']; ?> comment(s)
+                        <div class="uk-article-meta">
+                            <div class="uk-clearfix">
+                                <div class="uk-float-left">
+                                    <span data-uk-icon="icon: clock"></span> |
+                                    Written on <?php echo $post['post_createdAt']; ?>
+                                    <?php
+                                    if ($post['post_createdAt'] != $post['post_updatedAt']) {
+                                        echo "|" . $post['post_updatedAt'];
+                                    }
+                                    ?>
+                                </div>
+                                <div class="uk-float-right">
+                                    <span data-uk-icon="icon: comment"></span> |
+                                    <?php echo $post['post_comment_count']; ?> comment(s)
+                                </div>
+                            </div>
+                        </div>
                     </header>
                     <p>
                         <?php echo $post['post_content']; ?>

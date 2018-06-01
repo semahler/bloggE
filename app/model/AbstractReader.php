@@ -6,11 +6,13 @@ class AbstractReader
     {
         $fileContent = "";
 
-        $handle = fopen($fileName, 'r');
+        if (file_exists($fileName)) {
+            $handle = fopen($fileName, 'r');
 
-        $fileContent = fread($handle, filesize($fileName));
-        fclose($handle);
-
+            $fileContent = fread($handle, filesize($fileName));
+            fclose($handle);
+        }
+        
         return $fileContent;
     }
 

@@ -38,7 +38,7 @@ class PostReader extends AbstractReader
 
         if ($this->checkPostDirectory()) {
 
-            $fileName = sprintf("%s/%s", $this->directoryPath, FILENAME_COMMENTS);
+            $fileName = sprintf("%s/%s", $this->directoryPath, FILENAME_POST);
             $jsonString = $this->readFileToJsonString($fileName);
 
             $post = json_decode($jsonString, true);

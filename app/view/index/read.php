@@ -1,10 +1,10 @@
-<div class="uk-section uk-section-default">
+<div class="uk-section uk-section-default uk-padding-remove-bottom">
     <div class="uk-container">
         <div class="uk-grid" data-ukgrid>
             <div class="uk-width-2-3@m">
                 <article class="uk-section uk-section-small uk-padding-remove-top">
                     <header>
-                        <h2 class="uk-text-bold uk-margin-small-bottom"><?php echo $this->view_data['post']['post_title']; ?></h2>
+                        <h2 class="uk-text-bold uk-margin-small-bottom uk-heading-line"><span><?php echo $this->view_data['post']['post_title']; ?></span></h2>
                         <p class="uk-article-meta">
                             <span data-uk-icon="icon: clock"></span> |
                             Written on <?php echo $this->view_data['post']['post_createdAt']; ?>
@@ -39,7 +39,7 @@
     <div class="uk-container">
         <div class="uk-grid" data-ukgrid>
             <div class="uk-width-1-1">
-               <h2 class="uk-text-bold uk-margin-small-bottom">Comments</h2>
+               <h2 class="uk-text-bold uk-margin-small-bottom uk-heading-line"><span>Comments</span></h2>
 
                 <?php
                 if (is_array($this->view_data['comments']) && sizeof($this->view_data['comments']) > 0) {
@@ -76,7 +76,7 @@
 
                 <hr />
 
-                <form class="uk-form-stacked" action="admin/save/" method="POST">
+                <form class="uk-form-stacked" action="/index/save-comment/" method="POST">
 
                     <div class="uk-margin">
                         <label class="uk-form-label" for="name">Name</label>
@@ -98,6 +98,8 @@
                             <textarea class="uk-textarea" rows="5" id="comment" name="comment" placeholder="Your comment"></textarea>
                         </div>
                     </div>
+
+                    <input type="hidden" name="createdAt" value="<?php echo $this->view_data['post_created_at']; ?>" />
 
                     <hr />
 
