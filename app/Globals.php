@@ -16,3 +16,6 @@ define ('PAGE_FOOT_TEMPLATE_PATH', VIEW_DIR . 'default/footer.php');
 
 define ('POST_PER_PAGE', 3);
 
+define('FILENAME_POST', 'post.json');
+define('FILENAME_COMMENTS', 'comments.json');
+

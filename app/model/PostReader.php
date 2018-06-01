@@ -1,8 +1,6 @@
 <?php
 
-
-
-class PostReader
+class PostReader extends AbstractReader
 {
     protected $directoryPath;
 
@@ -39,7 +37,9 @@ class PostReader
         $post = [];
 
         if ($this->checkPostDirectory()) {
-            $jsonString = $this->readFileToJsonString();
+
+            $fileName = sprintf("%s/%s", $this->directoryPath, FILENAME_COMMENTS);
+            $jsonString = $this->readFileToJsonString($fileName);
 
             $post = json_decode($jsonString, true);
             $post = $this->preparePostData($post);
@@ -57,19 +57,6 @@ class PostReader
         }
 
         return false;
-    }
-
-    protected function readFileToJsonString()
-    {
-        $fileContent = "";
-
-        $fileName = $this->directoryPath . '/post.json';
-        $handle = fopen($fileName, 'r');
-
-        $fileContent = fread($handle, filesize($fileName));
-        fclose($handle);
-
-        return $fileContent;
     }
 
     protected function preparePostData($post)

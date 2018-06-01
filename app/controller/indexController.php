@@ -8,11 +8,17 @@ class indexController extends Controller
         $postDirectories = $postReader->getPostDirectories();
         $postDirectories = array_reverse($postDirectories);
 
+        $commentReader = new CommentReader();
+
         $posts = [];
         foreach ($postDirectories as $postDirectory) {
             $postReader->setPostDirectory($postDirectory);
+            $post = $postReader->getPost();
 
-            $posts[] = $postReader->getPost();
+            $commentReader->setPostDirectory($postDirectory);
+            $post['post_comment_count'] = $commentReader->getCommentCountForPost();
+
+            $posts[] = $post;
         }
 
         $pagination = $this->getPagination(sizeof($posts), $page);
