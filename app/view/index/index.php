@@ -11,7 +11,7 @@
                     <header>
                         <h2 class="uk-text-bold uk-margin-small-bottom">
                             <a title="<?php echo $post['post_title']; ?>" class="uk-link-reset"
-                               href="<?php echo $post['post_url']; ?>"><?php echo $post['post_url']; ?></a>
+                               href="<?php echo $post['post_url']; ?>"><?php echo $post['post_title']; ?></a>
                         </h2>
                         <p class="uk-article-meta">
                             <span data-uk-icon="icon: clock"></span> |

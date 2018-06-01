@@ -4,18 +4,18 @@
             <div class="uk-width-2-3@m">
                 <article class="uk-section uk-section-small uk-padding-remove-top">
                     <header>
-                        <h2 class="uk-text-bold uk-margin-small-bottom"><?php echo $post['post_url']; ?></h2>
+                        <h2 class="uk-text-bold uk-margin-small-bottom"><?php echo $this->view_data['post']['post_title']; ?></h2>
                         <p class="uk-article-meta">
                             <span data-uk-icon="icon: clock"></span> |
-                            Written on <?php echo $post['post_createdAt']; ?>
+                            Written on <?php echo $this->view_data['post']['post_createdAt']; ?>
                             <?php
-                            if ($post['post_createdAt'] != $post['post_updatedAt']) {
-                                echo "|" . $post['post_updatedAt'];
+                            if ($this->view_data['post']['post_createdAt'] != $this->view_data['post']['post_updatedAt']) {
+                                echo "|" . $this->view_data['post']['post_updatedAt'];
                             }
                             ?>
                     </header>
                     <p>
-                        <?php echo $post['post_content']; ?>
+                        <?php echo $this->view_data['post']['post_content']; ?>
                     </p>
                 </article>
             </div>
