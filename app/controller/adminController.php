@@ -44,12 +44,4 @@ class adminController extends Controller
         $postWriter->savePost();
     }
 
-    public function saveCommentAction($commentAuthor, $commentEmail, $commentContent, $postCreatedAt)
-    {
-        $commentWriter = new CommentWriter();
-
-        $commentWriter->setCommentData($commentAuthor, $commentEmail, $commentContent, $postCreatedAt);
-        $commentWriter->saveComment();
-    }
-
 }

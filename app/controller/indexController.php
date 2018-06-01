@@ -49,6 +49,14 @@ class indexController extends Controller
         $this->view->render();
     }
 
+    public function saveCommentAction($commentAuthor, $commentEmail, $commentContent, $postCreatedAt)
+    {
+        $commentWriter = new CommentWriter();
+
+        $commentWriter->setCommentData($commentAuthor, $commentEmail, $commentContent, $postCreatedAt);
+        $commentWriter->saveComment();
+    }
+
     protected function getPagination($numberOfPosts, $currentPage)
     {
         $paginationArr = [];
