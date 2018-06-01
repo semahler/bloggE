@@ -45,10 +45,15 @@ class indexController extends Controller
         $postReader->setPostDirectory($post_createdAt);
         $post = $postReader->getPost();
 
+        $commentReader = new CommentReader();
+        $commentReader->setPostDirectory($post_createdAt);
+        $comments = $commentReader->getComments();
+
         $this->view('index/read',
             [
                 'title' => $post['post_title'],
-                'post' => $post
+                'post' => $post,
+                'comments' => $comments
             ]
         );
 

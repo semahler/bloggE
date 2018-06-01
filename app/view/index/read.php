@@ -39,7 +39,42 @@
     <div class="uk-container">
         <div class="uk-grid" data-ukgrid>
             <div class="uk-width-1-1">
-                <h2 class="uk-margin-remove-adjacent uk-text-bold uk-margin-small-bottom"><a title="Fusce facilisis tempus magna ac dignissim." class="uk-link-reset" href="#">New Comment</a></h2>
+               <h2 class="uk-text-bold uk-margin-small-bottom">Comments</h2>
+
+                <?php
+                if (is_array($this->view_data['comments']) && sizeof($this->view_data['comments']) > 0) {
+                    foreach ($this->view_data['comments'] as $key => $comment) {
+                ?>
+                <article class="uk-section uk-section-small uk-padding-remove-top">
+                    <header>
+                        <p class="uk-article-meta">
+                            <span data-uk-icon="icon: clock"></span> |
+                            Written on <?php echo $comment['commment_created_at']; ?>
+                            <span data-uk-icon="icon: user"></span> |
+                            <?php echo $comment['comment_author']; ?>
+                            <?php echo $comment['comment_email']; ?>
+                        </p>
+                    </header>
+                    <p>
+                        <?php echo $comment['comment_content']; ?>
+                    </p>
+                </article>
+                <hr>
+                <?php
+                    }
+                } else {
+                ?>
+                    <article class="uk-section uk-section-small uk-padding-remove-top">
+                        <header>
+                            <h2 class="uk-text-bold uk-margin-small-bottom">No comments found.</h2>
+                            <h3> Create one!</h3>
+                        </header>
+                    </article>
+                    <?php
+                }
+                ?>
+
+                <hr />
 
                 <form class="uk-form-stacked" action="admin/save/" method="POST">
 
