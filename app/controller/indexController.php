@@ -65,6 +65,7 @@ class indexController extends Controller
         $commentWriter = new CommentWriter();
 
         $commentWriter->setCommentData($commentAuthor, $commentEmail, $commentContent, $postCreatedAt);
+
         $commentWriter->saveComment();
     }
 

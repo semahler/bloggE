@@ -18,12 +18,15 @@ class CommentReader extends AbstractReader
         $comments = [];
 
         $fileName = sprintf("%s/%s", $this->directoryPath, FILENAME_COMMENTS);
+
         $jsonString = $this->readFileToJsonString($fileName);
 
-        $comment = json_decode($jsonString, true);
-        $comment = $this->prepareCommentData($comment);
+        if ($jsonString) {
+            $comments = json_decode($jsonString, true);
+        }
 
         return $comments;
+
     }
 
     public function getCommentCountForPost()
@@ -33,11 +36,5 @@ class CommentReader extends AbstractReader
         return count($comments);
     }
 
-    protected function prepareCommentData($comment)
-    {
-        $comment['comment_createdAt'] = date('d/m/Y H:i', $comment['comment_createdAt']);
-
-        return $comment;
-    }
 
 }
