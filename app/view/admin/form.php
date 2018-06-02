@@ -3,7 +3,7 @@
     <div class="uk-margin">
         <label class="uk-form-label" for="title">Title</label>
         <div class="uk-form-controls">
-            <input class="uk-input" name="title" type="text" value="<?php echo $this->view_data['post_title']; ?>" placeholder="Title of the post">
+            <input class="uk-input" name="title" type="text" value="<?php echo $this->view_data['post_title']; ?>" placeholder="Title of the post" required>
         </div>
     </div>
 
