@@ -21,4 +21,5 @@ define ('POST_PER_PAGE', 3);
 define ('FILENAME_POST', 'post.json');
 define ('FILENAME_COMMENTS', 'comments.json');
 define ('DEFAULT_TITLE', 'bloggE - Blogging Platform');
+define ('TEXT_PREVIEW_LENGTH', 400);
 

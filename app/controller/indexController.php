@@ -13,7 +13,7 @@ class indexController extends Controller
         $posts = [];
         foreach ($postDirectories as $postDirectory) {
             $postReader->setPostDirectory($postDirectory);
-            $post = $postReader->getPost();
+            $post = $postReader->getPost(true);
 
             $commentReader->setPostDirectory($postDirectory);
             $post['post_comment_count'] = $commentReader->getCommentCountForPost();
