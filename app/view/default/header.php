@@ -19,7 +19,7 @@
 <body>
     <header>
         <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #sticky-dropdown">
-            <nav class="uk-navbar-container uk-box-shadow-small">
+            <nav class="uk-navbar-container uk-box-shadow-small uk-section-muted">
                 <div class="uk-container">
                     <div uk-navbar>
                         <div class="uk-navbar-left">
