@@ -14,11 +14,39 @@ class adminController extends Controller
         $this->view->render();
     }
 
-    public function editPostAction()
+    public function selectPostAction()
     {
+        $postReader = new PostReader();
+        $postDirectories = $postReader->readPostDirectories();
+
+        $posts = [];
+        foreach ($postDirectories as $postDirectory) {
+            $postReader->setPostDirectory($postDirectory);
+            $post = $postReader->getPost(true);
+
+            $posts[] = $post;
+        }
+
+        $this->view('admin/select-post',
+            [
+                'title' => 'Select a post',
+                'posts' => $posts
+            ]
+        );
+
+        $this->view->render();
+    }
+
+    public function editPostAction($post_createdAt)
+    {
+        $postReader = new PostReader();
+        $postReader->setPostDirectory($post_createdAt);
+        $post = $postReader->getPost();
+
         $this->view('admin/edit-post',
             [
-                'title' => 'Edit post'
+                'title' => 'Edit post',
+                'post' => $post
             ]
         );
 

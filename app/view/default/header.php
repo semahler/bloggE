@@ -34,7 +34,7 @@
                                     <div class="uk-navbar-dropdown">
                                         <ul class="uk-nav uk-navbar-dropdown-nav">
                                             <li class=""><a href="/admin/new-post">New Post</a></li>
-                                            <li class=""><a href="/admin/edit-post">Edit Post</a></li>
+                                            <li class=""><a href="/admin/select-post">Edit Post</a></li>
                                             <li class=""><a href="/admin/upload-picture">Upload Pictures</a></li>
                                         </ul>
                                     </div>
