@@ -24,6 +24,8 @@ class PostReader extends AbstractReader
 
         closedir($handle);
 
+        rsort($directoryArr);
+
         return $directoryArr;
     }
 

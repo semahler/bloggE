@@ -6,7 +6,6 @@ class indexController extends Controller
     {
         $postReader = new PostReader();
         $postDirectories = $postReader->getPostDirectories();
-        $postDirectories = array_reverse($postDirectories);
 
         $commentReader = new CommentReader();
 
