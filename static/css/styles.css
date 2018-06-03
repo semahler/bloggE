@@ -1,3 +1,8 @@
 .uk-list a {
     font-weight: bold;
 }
+
+a.uk-logo img {
+    height: 80px;
+    width: auto;
+}

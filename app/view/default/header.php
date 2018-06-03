@@ -23,7 +23,11 @@
                 <div class="uk-container">
                     <div uk-navbar>
                         <div class="uk-navbar-left">
-                            <ul class="uk-navbar-nav">
+                            <a class="uk-navbar-item uk-logo" href="/"><img data-src="/static/logo.png" width="" height="100%" alt="" uk-img></a>
+                        </div>
+
+                        <div class="uk-navbar-right">
+                            <ul class="uk-navbar-nav uk-visible@m">
                                 <li class="uk-active"><a href="/">Home</a></li>
                                 <li>
                                     <a href="#">Admin</a>
@@ -36,9 +40,9 @@
                                     </div>
                                 </li>
                             </ul>
-                        </div>
-                        <div class="uk-navbar-center">
-                            <a class="uk-logo" href="#">Logo</a>
+                            <div class="uk-navbar-item">
+                                <a class="uk-navbar-toggle uk-hidden@s" data-uk-toggle data-uk-navbar-toggle-icon href="#offcanvas-nav"></a>
+                            </div>
                         </div>
                     </div>
                 </div>

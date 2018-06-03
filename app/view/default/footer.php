@@ -7,5 +7,18 @@
         </div>
     </footer>
 
+    <div id="offcanvas-nav" data-uk-offcanvas="flip: true; overlay: true">
+        <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
+            <button class="uk-offcanvas-close uk-close uk-icon" type="button" data-uk-close></button>
+            <ul class="uk-nav uk-nav-default">
+                <li class="uk-active"><a href="/">Home</a></li>
+                <li class="uk-nav-divider"></li>
+                <li class=""><a href="/admin/new-post">New Post</a></li>
+                <li class=""><a href="/admin/edit-post">Edit Post</a></li>
+                <li class=""><a href="/admin/upload-picture">Upload Pictures</a></li>
+            </ul>
+        </div>
+    </div>
+
 </body>
 </html>
