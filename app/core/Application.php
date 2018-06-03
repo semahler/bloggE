@@ -51,6 +51,10 @@ class Application
                 $this->params = array_values($_POST);
             }
 
+            if (!empty($_FILES)) {
+                $this->params = array_values($_FILES);
+            }
+
         }
     }
 }

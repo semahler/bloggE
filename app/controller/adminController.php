@@ -63,17 +63,6 @@ class adminController extends Controller
         header('Location: /admin/select-post');
     }
 
-    public function uploadPictureAction()
-    {
-        $this->view('admin/upload-picture',
-            [
-                'title' => "Upload pictures"
-            ]
-        );
-
-        $this->view->render();
-    }
-
     public function savePostAction($postTitle, $postContent, $postCreatedAt = '')
     {
         $postWriter = new PostWriter();
@@ -83,5 +72,41 @@ class adminController extends Controller
 
         header('Location: /');
     }
+
+    public function managePictureAction()
+    {
+        $pictureManager = new PictureManager();
+        $pictures = $pictureManager->getUploadedPictures();
+
+        $this->view('admin/manage-picture',
+            [
+                'title' => "Upload pictures",
+                'pictures' => $pictures
+            ]
+        );
+
+        $this->view->render();
+    }
+
+    public function savePictureAction($picture)
+    {
+        $pictureManager = new PictureManager();
+
+        $pictureManager->uploadPicture($picture);
+
+        header('Location: /admin/manage-picture');
+    }
+
+    public function deletePictureAction($pictureName)
+    {
+        $pictureManager = new PictureManager();
+
+        list ($key, $pictureName) = explode('=', $pictureName);
+        $pictureManager->deletePicture($pictureName);
+
+        header('Location: /admin/manage-picture');
+    }
+
+
 
 }

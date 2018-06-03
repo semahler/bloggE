@@ -37,7 +37,7 @@ class PostReader extends AbstractReader
 
         while ($dir = readdir($handle)) {
             if (is_dir(DATA_DIR . $dir)) {
-                if ($dir != '.' && $dir != '..') {
+                if ($dir != '.' && $dir != '..' && $dir != 'uploads') {
                     $directoryArr[] = $dir;
                 }
             }

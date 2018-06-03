@@ -16,7 +16,7 @@
                 <li class="uk-nav-divider"></li>
                 <li class=""><a href="/admin/new-post">New Post</a></li>
                 <li class=""><a href="/admin/select-post">Edit Post</a></li>
-                <li class=""><a href="/admin/upload-picture">Upload Pictures</a></li>
+                <li class=""><a href="/admin/manage-picture">Upload Pictures</a></li>
             </ul>
         </div>
     </div>
