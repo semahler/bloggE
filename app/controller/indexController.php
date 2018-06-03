@@ -20,6 +20,8 @@ class indexController extends Controller
             $posts[] = $post;
         }
 
+        $latestPosts = $this->slicePosts($posts, 0, NUMBER_OF_LATEST_POSTS);
+
         $totalNumberOfPosts = sizeof($posts);
         $pagination = $this->getPagination($totalNumberOfPosts, $pageNumber);
 
@@ -30,7 +32,8 @@ class indexController extends Controller
             [
                 'title' => DEFAULT_TITLE,
                 'posts' => $posts,
-                'pagination' => $pagination
+                'pagination' => $pagination,
+                'latestPosts' => $latestPosts
 
             ]
         );
@@ -56,7 +59,8 @@ class indexController extends Controller
             [
                 'title' => $post['post_title'],
                 'post' => $post,
-                'comments' => $comments
+                'comments' => $comments,
+
             ]
         );
 

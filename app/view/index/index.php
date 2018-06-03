@@ -59,11 +59,16 @@
                 <h4 class="uk-heading-line uk-text-bold"><span>Latest Posts</span></h4>
                 <ul class="uk-list">
                     <?php
-                    //foreach ($latestPost as $lastestPosts) {
+                    if (is_array($this->view_data['latestPosts']) && sizeof($this->view_data['latestPosts']) > 0) {
+                        foreach ($this->view_data['latestPosts'] as $key => $latestPost) {
                     ?>
-                        <li><a href="">Post</a></li>
+                        <li>
+                            <a title="<?php echo $latestPost['post_title']; ?>" class="uk-link-reset"
+                               href="<?php echo $latestPost['post_url']; ?>"><?php echo $latestPost['post_title']; ?></a>
+                        </li>
                     <?php
-                    //}
+                        }
+                    }
                     ?>
                 </ul>
             </div>
