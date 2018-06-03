@@ -17,7 +17,7 @@ define ('PAGE_FOOT_TEMPLATE_PATH', VIEW_DIR . 'default/footer.php');
 /**
  * Defining some configuration values
  */
-define ('POST_PER_PAGE', 3);
+define ('POSTS_PER_PAGE', 3);
 define ('FILENAME_POST', 'post.json');
 define ('FILENAME_COMMENTS', 'comments.json');
 define ('DEFAULT_TITLE', 'bloggE - Blogging Platform');

@@ -2,10 +2,10 @@
 
 class indexController extends Controller
 {
-    public function pageAction($page = 1)
+    public function pageAction($pageNumber = 1)
     {
         $postReader = new PostReader();
-        $postDirectories = $postReader->getPostDirectories();
+        $postDirectories = $postReader->readPostDirectories();
 
         $commentReader = new CommentReader();
 
@@ -20,7 +20,11 @@ class indexController extends Controller
             $posts[] = $post;
         }
 
-        $pagination = $this->getPagination(sizeof($posts), $page);
+        $totalNumberOfPosts = sizeof($posts);
+        $pagination = $this->getPagination($totalNumberOfPosts, $pageNumber);
+
+        $postOffset = $this->getPostOffsetByPageNumber($pageNumber);
+        $posts = $this->slicePosts($posts, $postOffset, POSTS_PER_PAGE);
 
         $this->view('index/index',
             [
@@ -68,11 +72,11 @@ class indexController extends Controller
         $commentWriter->saveComment();
     }
 
-    protected function getPagination($numberOfPosts, $currentPage)
+    protected function getPagination($totalNumberOfPosts, $currentPage)
     {
         $paginationArr = [];
 
-        $numberOfSites = ceil($numberOfPosts / POST_PER_PAGE);
+        $numberOfSites = ceil($totalNumberOfPosts / POSTS_PER_PAGE);
 
         for ($i = 1; $i <= $numberOfSites; $i++) {
 
@@ -88,6 +92,24 @@ class indexController extends Controller
         }
 
         return $paginationArr;
+    }
+
+    protected function getPostOffsetByPageNumber($pageNumber)
+    {
+        $offset = 0;
+
+        if ($pageNumber > 1) {
+            $offset = ($pageNumber - 1) * POSTS_PER_PAGE;
+        }
+
+        return $offset;
+    }
+
+    protected function slicePosts($postArray, $offset, $length)
+    {
+        $postArray = array_slice($postArray, $offset, $length);
+
+        return $postArray;
     }
 
 }

@@ -8,27 +8,6 @@ class PostReader extends AbstractReader
     {
     }
 
-    public function getPostDirectories()
-    {
-        $directoryArr = [];
-
-        $handle = opendir(DATA_DIR);
-
-        while ($dir = readdir($handle)) {
-            if (is_dir(DATA_DIR . $dir)) {
-                if ($dir != '.' && $dir != '..') {
-                    $directoryArr[] = $dir;
-                }
-            }
-        }
-
-        closedir($handle);
-
-        rsort($directoryArr);
-
-        return $directoryArr;
-    }
-
     public function setPostDirectory($directoryName)
     {
         $this->directoryPath = DATA_DIR . $directoryName;
@@ -48,6 +27,27 @@ class PostReader extends AbstractReader
         }
 
         return $post;
+    }
+
+    public function readPostDirectories()
+    {
+        $directoryArr = [];
+
+        $handle = opendir(DATA_DIR);
+
+        while ($dir = readdir($handle)) {
+            if (is_dir(DATA_DIR . $dir)) {
+                if ($dir != '.' && $dir != '..') {
+                    $directoryArr[] = $dir;
+                }
+            }
+        }
+
+        closedir($handle);
+
+        rsort($directoryArr);
+
+        return $directoryArr;
     }
 
     protected function checkPostDirectory()
