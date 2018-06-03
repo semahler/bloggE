@@ -63,8 +63,10 @@
                         foreach ($this->view_data['latestPosts'] as $key => $latestPost) {
                     ?>
                         <li>
+                            <span data-uk-icon="icon: clock"></span> | <?php echo $latestPost['post_createdAt']; ?><br />
                             <a title="<?php echo $latestPost['post_title']; ?>" class="uk-link-reset"
-                               href="<?php echo $latestPost['post_url']; ?>"><?php echo $latestPost['post_title']; ?></a>
+                               href="<?php echo $latestPost['post_url']; ?>"><?php echo $latestPost['post_title']; ?>
+                            </a>
                         </li>
                     <?php
                         }
