@@ -1,13 +1,10 @@
 $( document ).ready(function() {
 
-    const content = $("textarea[name='content']")[0];
-    if (content !== undefined) {
-        var simplemde = new SimpleMDE({ element: content });
-    }
+    const editTextArea = $("textarea[name='content']");
+    const value = editTextArea.val();
 
-    const textarea = $(".CodeMirror textarea");
-    if (textarea !== undefined) {
-        textarea.attr("required", true);
+    if (editTextArea !== undefined) {
+        var simplemde = new SimpleMDE({ element: editTextArea[0] });
+        simplemde.value(value);
     }
-
 });

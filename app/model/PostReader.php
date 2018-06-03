@@ -13,7 +13,7 @@ class PostReader extends AbstractReader
         $this->directoryPath = DATA_DIR . $directoryName;
     }
 
-    public function getPost($textPreviewMode = false)
+    public function getPost($textPreviewMode = false, $parseText = true)
     {
         $post = [];
 
@@ -23,7 +23,7 @@ class PostReader extends AbstractReader
             $jsonString = $this->readFileToJsonString($fileName);
 
             $post = json_decode($jsonString, true);
-            $post = $this->preparePostData($post, $textPreviewMode);
+            $post = $this->preparePostData($post, $textPreviewMode, $parseText);
         }
 
         return $post;
@@ -61,11 +61,12 @@ class PostReader extends AbstractReader
         return false;
     }
 
-    protected function preparePostData($post, $textPreviewMode)
+    protected function preparePostData($post, $textPreviewMode, $parseText)
     {
-        $Parsedown = new Parsedown();
-
-        $post['post_content'] = $Parsedown->text($post['post_content']);
+        if ($parseText) {
+            $Parsedown = new Parsedown();
+            $post['post_content'] = $Parsedown->text($post['post_content']);
+        }
 
         if ($textPreviewMode) {
             $post['post_content'] = $this->generateTextPreview($post['post_content']);

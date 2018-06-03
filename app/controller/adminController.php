@@ -41,7 +41,7 @@ class adminController extends Controller
     {
         $postReader = new PostReader();
         $postReader->setPostDirectory($post_createdAt);
-        $post = $postReader->getPost();
+        $post = $postReader->getPost(false, false);
 
         $this->view('admin/edit-post',
             [
