@@ -53,6 +53,16 @@ class adminController extends Controller
         $this->view->render();
     }
 
+    public function deletePostAction($post_createdAt)
+    {
+        $postWriter = new PostWriter();
+
+        $postWriter->setPostDirectory($post_createdAt);
+        $postWriter->deletePost();
+
+        header('Location: /admin/select-post');
+    }
+
     public function uploadPictureAction()
     {
         $this->view('admin/upload-picture',

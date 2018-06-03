@@ -12,8 +12,15 @@ class PostWriter
     {
     }
 
+    public function setPostDirectory($directoryName)
+    {
+        $this->directoryPath = DATA_DIR . $directoryName;
+    }
+
     public function setPostData($postTitle, $postContent, $postCreatedAt)
     {
+        $this->setPostDirectory($postCreatedAt);
+
         $this->title = $postTitle;
         $this->content = $postContent;
 
@@ -21,9 +28,6 @@ class PostWriter
         if (!$this->createdAt) {
             $this->createdAt = time();
         }
-
-        $directoryName = $this->createdAt;
-        $this->directoryPath = DATA_DIR . $directoryName;
     }
 
     public function savePost()
@@ -32,6 +36,21 @@ class PostWriter
 
         $jsonString = $this->createJsonStringToSave();
         $this->writeJsonStringToFile($jsonString);
+    }
+
+    public function deletePost()
+    {
+        $postFile = $this->directoryPath . '/' . FILENAME_POST;
+        if (file_exists($postFile)) {
+            @unlink($postFile);
+        }
+
+        $commentFile = $this->directoryPath . '/' . FILENAME_COMMENTS;
+        if (file_exists($commentFile)) {
+            @unlink($commentFile);
+        }
+
+        @rmdir($this->directoryPath);
     }
 
     protected function createPostDirectory()

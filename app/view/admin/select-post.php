@@ -25,7 +25,7 @@
                                 <td>
                                     <div class="uk-button-group">
                                         <a class="uk-button uk-button-default uk-button-small" href="/admin/edit-post/<?php echo $post['id']; ?>">EDIT</a>
-                                        <a class="uk-button uk-button-danger uk-button-small" href="/admin/delete-post/<?php echo $post['id']; ?>">DELETE</a>
+                                        <a class="uk-button uk-button-danger uk-button-small save-delete" href="/admin/delete-post/<?php echo $post['id']; ?>">DELETE</a>
                                     </div>
                                 </td>
                             </tr>
