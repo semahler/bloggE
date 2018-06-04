@@ -1,5 +1,6 @@
 <?php
 
+
 class Application
 {
     protected $controller = '';
@@ -30,12 +31,12 @@ class Application
             $requestUrl = explode('/', $requestUrl);
 
             $this->controller = 'indexController';
-            if ($requestUrl[0]) {
+            if (!empty($requestUrl[0])) {
                 $this->controller = $requestUrl[0].'Controller';
             }
 
             $this->action = 'pageAction';
-            if ($requestUrl[1]) {
+            if (!empty($requestUrl[1])) {
                 $this->action = $requestUrl[1].'Action';
             }
             unset($requestUrl[0], $requestUrl[1]);

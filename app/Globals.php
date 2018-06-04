@@ -25,3 +25,7 @@ define ('FILENAME_COMMENTS', 'comments.json');
 define ('DEFAULT_TITLE', 'bloggE - Blogging Platform');
 define ('TEXT_PREVIEW_LENGTH', 400);
 
+/**
+ * Show php-errors and hide notices
+ */
+error_reporting(E_ALL & ~E_NOTICE);
