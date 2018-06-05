@@ -22,10 +22,8 @@ class Application
 
     protected function prepareUrl()
     {
-        $requestUrl = $_GET['requestUrl'];
-        if (empty($requestUrl)) {
-            $requestUrl = $_SERVER['REQUEST_URI'];
-        }
+        $requestUrl = $_SERVER['REQUEST_URI'];
+        $requestUrl = str_replace(SUB_DIR, "", $requestUrl);
 
         if (isset($requestUrl)) {
             $requestUrl = trim($requestUrl, '/');

@@ -13,7 +13,7 @@ define ('DATA_DIR', APP_DIR . 'data/');
 define ('MODEL_DIR', APP_DIR . 'model/');
 define ('VIEW_DIR', APP_DIR . 'view/');
 define ('UPLOAD_DIR', DATA_DIR . 'uploads/');
-define ('STATIC_DIR', SUBDIR . '/static');
+define ('STATIC_DIR', SUB_DIR . '/static');
 
 define ('PAGE_HEAD_TEMPLATE_PATH', VIEW_DIR . 'default/header.php');
 define ('PAGE_FOOT_TEMPLATE_PATH', VIEW_DIR . 'default/footer.php');
@@ -33,3 +33,10 @@ define ('TEXT_PREVIEW_LENGTH', 400);
  */
 error_reporting(E_ALL & ~E_NOTICE);
 
+/**
+ * Defining navigation paths
+ */
+define ('NAV_PATH_HOME', SUB_DIR . '/');
+define ('NAV_PATH_NEW_POST', SUB_DIR . '/admin/new-post');
+define ('NAV_PATH_EDIT_POST', SUB_DIR . '/admin/select-post');
+define ('NAV_PATH_MANAGE_PICTURES', SUB_DIR . '/admin/manage-picture');

@@ -6,7 +6,7 @@
                 <h1 class="uk-heading-line uk-text-center"><span>Upload or delete pictures</span></h1>
 
                 <h4 class="uk-text-bold uk-margin-small-bottom uk-heading-line"><span>Upload a new picture</span></h4>
-                <form action="/admin/save-picture/" method="POST" enctype="multipart/form-data">
+                <form action="<?php echo SUB_DIR; ?>/admin/save-picture/" method="POST" enctype="multipart/form-data">
                     <div class="uk-margin" uk-margin>
                         <div uk-form-custom="target: true">
                             <input type="file" name="fileToUpload" id="fileToUpload">
@@ -42,7 +42,7 @@
                                 <td><?php echo $picture['size']; ?></td>
                                 <td>
                                     <div class="uk-button-group">
-                                        <a class="uk-button uk-button-danger uk-button-small save-delete" href="/admin/delete-picture/?filename=<?php echo urlencode($picture['name']); ?>">DELETE</a>
+                                        <a class="uk-button uk-button-danger uk-button-small save-delete" href="<?php echo SUB_DIR; ?>/admin/delete-picture/?filename=<?php echo urlencode($picture['name']); ?>">DELETE</a>
                                     </div>
                                 </td>
                             </tr>

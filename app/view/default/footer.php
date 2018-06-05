@@ -14,9 +14,9 @@
             <ul class="uk-nav uk-nav-default">
                 <li class="uk-active"><a href="/">Home</a></li>
                 <li class="uk-nav-divider"></li>
-                <li class=""><a href="/admin/new-post">New Post</a></li>
-                <li class=""><a href="/admin/select-post">Edit Post</a></li>
-                <li class=""><a href="/admin/manage-picture">Upload Pictures</a></li>
+                <li class=""><a href="<?php echo NAV_PATH_NEW_POST; ?>">New Post</a></li>
+                <li class=""><a href="<?php echo NAV_PATH_EDIT_POST; ?>">Edit Post</a></li>
+                <li class=""><a href="<?php echo NAV_PATH_MANAGE_PICTURES; ?>">Upload Pictures</a></li>
             </ul>
         </div>
     </div>

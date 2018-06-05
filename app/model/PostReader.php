@@ -72,7 +72,7 @@ class PostReader extends AbstractReader
             $post['post_content'] = $this->generateTextPreview($post['post_content']);
         }
 
-        $post['post_url'] = '/index/read/' . $post['post_createdAt'];
+        $post['post_url'] = SUB_DIR . '/index/read/' . $post['post_createdAt'];
         $post['id'] = $post['post_createdAt'];
         $post['post_createdAt'] = date('d/m/Y H:i', $post['post_createdAt']);
         $post['post_updatedAt'] = date('d/m/Y H:i', $post['post_updatedAt']);

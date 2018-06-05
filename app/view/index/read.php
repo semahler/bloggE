@@ -84,7 +84,7 @@
 
                 <h4 class="uk-text-bold uk-margin-small-bottom uk-heading-line"><span>New Comment</span></h4>
 
-                <form class="uk-form-stacked" action="/index/save-comment/" method="POST">
+                <form class="uk-form-stacked" action="<?php echo SUB_DIR; ?>/index/save-comment/" method="POST">
 
                     <div class="uk-margin">
                         <label class="uk-form-label" for="name">Name</label>

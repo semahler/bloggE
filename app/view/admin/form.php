@@ -1,4 +1,4 @@
-<form class="uk-form-stacked" action="/admin/save-post/" method="POST">
+<form class="uk-form-stacked" action="<?php echo SUB_DIR; ?>/admin/save-post/" method="POST">
 
     <div class="uk-margin">
         <label class="uk-form-label" for="title">Title</label>
