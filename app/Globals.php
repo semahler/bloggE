@@ -3,7 +3,9 @@
 /**
  * Defining the base-directories for the project
  */
-define ( 'BASE_DIR', filter_input(INPUT_SERVER, 'DOCUMENT_ROOT') . '/' );
+define ('SERVER_ROOT_DIR', filter_input(INPUT_SERVER, 'DOCUMENT_ROOT'));
+define ('SUBDIR', ''); // e.g. '/blog'
+define ('BASE_DIR', SERVER_ROOT_DIR . SUBDIR . '/');
 define ('APP_DIR', BASE_DIR . 'app/');
 define ('CONTROLLER_DIR', APP_DIR . 'controller/');
 define ('CORE_DIR', APP_DIR . 'core/');
@@ -11,6 +13,7 @@ define ('DATA_DIR', APP_DIR . 'data/');
 define ('MODEL_DIR', APP_DIR . 'model/');
 define ('VIEW_DIR', APP_DIR . 'view/');
 define ('UPLOAD_DIR', DATA_DIR . 'uploads/');
+define ('STATIC_DIR', SUBDIR . '/static');
 
 define ('PAGE_HEAD_TEMPLATE_PATH', VIEW_DIR . 'default/header.php');
 define ('PAGE_FOOT_TEMPLATE_PATH', VIEW_DIR . 'default/footer.php');

@@ -3,8 +3,8 @@
 
 class Application
 {
-    protected $controller = '';
-    protected $action = '';
+    protected $controller = 'indexController';
+    protected $action = 'pageAction';
     protected $params = [];
 
     public function __construct()
@@ -22,20 +22,20 @@ class Application
 
     protected function prepareUrl()
     {
-        $requestUrl = $_SERVER['REQUEST_URI'];
+        $requestUrl = $_GET['requestUrl'];
+        if (empty($requestUrl)) {
+            $requestUrl = $_SERVER['REQUEST_URI'];
+        }
 
         if (isset($requestUrl)) {
-
             $requestUrl = trim($requestUrl, '/');
             $requestUrl = filter_var($requestUrl, FILTER_SANITIZE_URL);
             $requestUrl = explode('/', $requestUrl);
 
-            $this->controller = 'indexController';
             if (!empty($requestUrl[0])) {
                 $this->controller = $requestUrl[0].'Controller';
             }
 
-            $this->action = 'pageAction';
             if (!empty($requestUrl[1])) {
                 $this->action = $requestUrl[1].'Action';
             }
