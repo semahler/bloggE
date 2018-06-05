@@ -19,18 +19,18 @@
                     </p>
                 </article>
             </div>
+
             <div class="uk-width-1-3@m">
-                <h2 class="uk-heading-line uk-text-bold"><span>Latest Posts</span></h2>
-                <ul class="uk-list">
-                    <?php
-                    foreach ($post as $lastestPosts) {
-                        ?>
-                        <li><a href="">Post</a></li>
-                        <?php
-                    }
-                    ?>
-                </ul>
+                <h4 class="uk-heading-line uk-text-bold"><span>Latest Posts</span></h4>
+
+                <?php
+
+                include_once 'latest-post.php'
+
+                ?>
+
             </div>
+
         </div>
     </div>
 </div>

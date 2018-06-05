@@ -55,11 +55,24 @@ class indexController extends Controller
         $commentReader->setPostDirectory($post_createdAt);
         $comments = $commentReader->getComments();
 
+
+        $postDirectories = $postReader->readPostDirectories();
+
+        $posts = [];
+        foreach ($postDirectories as $postDirectory) {
+            $postReader->setPostDirectory($postDirectory);
+            $post = $postReader->getPost(true);
+
+            $posts[] = $post;
+        }
+        $latestPosts = $this->slicePosts($posts, 0, NUMBER_OF_LATEST_POSTS);
+
         $this->view('index/read',
             [
                 'title' => $post['post_title'],
                 'post' => $post,
                 'comments' => $comments,
+                'latestPosts' => $latestPosts
 
             ]
         );
