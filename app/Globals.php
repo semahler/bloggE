@@ -4,8 +4,8 @@
  * Defining the base-directories for the project
  */
 define ('SERVER_ROOT_DIR', filter_input(INPUT_SERVER, 'DOCUMENT_ROOT'));
-define ('SUBDIR', ''); // e.g. '/blog'
-define ('BASE_DIR', SERVER_ROOT_DIR . SUBDIR . '/');
+define ('SUB_DIR', ''); // e.g. '/blog'
+define ('BASE_DIR', SERVER_ROOT_DIR . SUB_DIR . '/');
 define ('APP_DIR', BASE_DIR . 'app/');
 define ('CONTROLLER_DIR', APP_DIR . 'controller/');
 define ('CORE_DIR', APP_DIR . 'core/');
@@ -32,3 +32,4 @@ define ('TEXT_PREVIEW_LENGTH', 400);
  * Show php-errors and hide notices
  */
 error_reporting(E_ALL & ~E_NOTICE);
+
