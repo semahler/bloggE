@@ -1,7 +1,6 @@
 <div class="uk-section uk-section-default uk-section-small">
     <div class="uk-container uk-container-small">
         <div class="uk-grid" data-ukgrid>
-
             <div class="uk-width-1-1">
                 <h1 class="uk-heading-line uk-text-center"><span>Upload or delete pictures</span></h1>
 
@@ -18,9 +17,7 @@
                     </div>
                 </form>
 
-
                 <h4 class="uk-text-bold uk-margin-small-bottom uk-heading-line"><span>Existing pictures</span></h4>
-
                 <table class="uk-table uk-table-divider uk-table-middle uk-table-responsive">
                     <thead>
                     <tr>
@@ -42,7 +39,7 @@
                                 <td><?php echo $picture['size']; ?></td>
                                 <td>
                                     <div class="uk-button-group">
-                                        <a class="uk-button uk-button-danger uk-button-small save-delete" href="<?php echo NAV_PATH_ADMIN_DELETE_PICTURE; ?>?filename=<?php echo urlencode($picture['name']); ?>">DELETE</a>
+                                        <a class="uk-button uk-button-danger uk-button-small save-delete" href="<?php echo NAV_PATH_ADMIN_DELETE_PICTURE; ?>?filename=<?php echo urlencode($picture['name']); ?>">Delete</a>
                                     </div>
                                 </td>
                             </tr>

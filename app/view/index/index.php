@@ -6,6 +6,7 @@
                 <?php
                 if (is_array($this->view_data['posts']) && sizeof($this->view_data['posts']) > 0) {
                     foreach ($this->view_data['posts'] as $key => $post) {
+
                 ?>
                 <article class="uk-section uk-section-small uk-padding-remove-top">
                     <header>
@@ -21,9 +22,11 @@
                                     <span data-uk-icon="icon: clock"></span> |
                                     Written on <?php echo $post['post_createdAt']; ?>
                                     <?php
+
                                     if ($post['post_createdAt'] != $post['post_updatedAt']) {
                                         echo "|" . $post['post_updatedAt'];
                                     }
+
                                     ?>
                                 </div>
                                 <div class="uk-float-right">
@@ -41,8 +44,10 @@
                     <hr>
                 </article>
                 <?php
+
                     }
                 } else {
+
                 ?>
                     <article class="uk-section uk-section-small uk-padding-remove-top">
                         <header>
@@ -51,27 +56,23 @@
                         </header>
                     </article>
                 <?php
+
                 }
+
                 ?>
 
             </div>
+
             <div class="uk-width-1-3@m">
                 <h4 class="uk-heading-line uk-text-bold"><span>Latest Posts</span></h4>
 
-                <?php
-
-                include_once 'latest-post.php'
-
-                ?>
+                <?php include_once 'latest-post.php'; ?>
 
             </div>
 
         </div>
 
-        <?php
+        <?php include_once 'pagination.php'; ?>
 
-        include_once 'pagination.php'
-
-        ?>
     </div>
 </div>

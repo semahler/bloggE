@@ -1,7 +1,6 @@
 <div class="uk-section uk-section-default uk-section-small">
     <div class="uk-container uk-container-small">
         <div class="uk-grid" data-ukgrid>
-
             <div class="uk-width-1-1">
                 <h1 class="uk-heading-line uk-text-center"><span>Select a post to edit or delete</span></h1>
 
@@ -24,8 +23,8 @@
                                 <td><?php echo $post['post_createdAt']; ?></td>
                                 <td>
                                     <div class="uk-button-group">
-                                        <a class="uk-button uk-button-default uk-button-small" href="<?php echo NAV_PATH_ADMIN_EDIT_POST . $post['id']; ?>">EDIT</a>
-                                        <a class="uk-button uk-button-danger uk-button-small save-delete" href="<?php echo NAV_PATH_ADMIN_DELETE_POST . $post['id']; ?>">DELETE</a>
+                                        <a class="uk-button uk-button-default uk-button-small" href="<?php echo NAV_PATH_ADMIN_EDIT_POST . $post['id']; ?>">Edit</a>
+                                        <a class="uk-button uk-button-danger uk-button-small save-delete" href="<?php echo NAV_PATH_ADMIN_DELETE_POST . $post['id']; ?>">Delete</a>
                                     </div>
                                 </td>
                             </tr>
@@ -36,7 +35,6 @@
 
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>

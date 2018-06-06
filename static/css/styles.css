@@ -6,3 +6,7 @@ a.uk-logo img {
     height: 80px;
     width: auto;
 }
+
+.uk-icon {
+    vertical-align: text-top;
+}

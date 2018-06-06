@@ -1,4 +1,3 @@
-
     </main>
 
     <footer class="uk-section uk-section-small uk-section-muted">
