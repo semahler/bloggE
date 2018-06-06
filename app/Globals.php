@@ -13,7 +13,7 @@ define ('DATA_DIR', APP_DIR . 'data/');
 define ('MODEL_DIR', APP_DIR . 'model/');
 define ('VIEW_DIR', APP_DIR . 'view/');
 define ('UPLOAD_DIR', DATA_DIR . 'uploads/');
-define ('STATIC_DIR', SUBDIR . '/static');
+define ('STATIC_DIR', SUB_DIR . '/static');
 
 define ('PAGE_HEAD_TEMPLATE_PATH', VIEW_DIR . 'default/header.php');
 define ('PAGE_FOOT_TEMPLATE_PATH', VIEW_DIR . 'default/footer.php');
@@ -32,4 +32,3 @@ define ('TEXT_PREVIEW_LENGTH', 400);
  * Show php-errors and hide notices
  */
 error_reporting(E_ALL & ~E_NOTICE);
-
