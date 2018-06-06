@@ -60,7 +60,8 @@ class adminController extends Controller
         $postWriter->setPostDirectory($post_createdAt);
         $postWriter->deletePost();
 
-        header('Location: /admin/select-post');
+        $redirect = sprintf('Location: %s', NAV_PATH_ADMIN_SELECT_POST);
+        header($redirect);
     }
 
     public function savePostAction($postTitle, $postContent, $postCreatedAt = '')
@@ -70,7 +71,8 @@ class adminController extends Controller
         $postWriter->setPostData($postTitle, $postContent, $postCreatedAt);
         $postWriter->savePost();
 
-        header('Location: /');
+        $redirect = sprintf('Location: %s', NAV_PATH_HOME);
+        header($redirect);
     }
 
     public function managePictureAction()
@@ -94,7 +96,8 @@ class adminController extends Controller
 
         $pictureManager->uploadPicture($picture);
 
-        header('Location: /admin/manage-picture');
+        $redirect = sprintf('Location: %s', NAV_PATH_ADMIN_MANAGE_PICTURE);
+        header($redirect);
     }
 
     public function deletePictureAction($pictureName)
@@ -104,7 +107,8 @@ class adminController extends Controller
         list ($key, $pictureName) = explode('=', $pictureName);
         $pictureManager->deletePicture($pictureName);
 
-        header('Location: /admin/manage-picture');
+        $redirect = sprintf('Location: %s', NAV_PATH_ADMIN_MANAGE_PICTURE);
+        header($redirect);
     }
 
 

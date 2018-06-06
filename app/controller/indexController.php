@@ -102,7 +102,7 @@ class indexController extends Controller
             }
 
             $paginationArr[$i] = [
-                'href' => '/index/page/' . $i,
+                'href' => NAV_PATH_INDEX_PAGE . $i,
                 'class' => $class
             ];
         }

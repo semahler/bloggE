@@ -20,8 +20,6 @@ class PostWriter
 
     public function setPostData($postTitle, $postContent, $postCreatedAt)
     {
-        $this->setPostDirectory($postCreatedAt);
-
         $this->title = $postTitle;
         $this->content = $postContent;
 
@@ -30,7 +28,8 @@ class PostWriter
             $this->createdAt = time();
         }
 
-        $this->postFile = $this->directoryPath . FILENAME_POST;
+        $this->setPostDirectory($this->createdAt);
+        $this->postFile = $this->directoryPath . '/' . FILENAME_POST;
     }
 
     public function savePost()
@@ -60,6 +59,7 @@ class PostWriter
     {
         if(!is_dir($this->directoryPath)) {
             mkdir($this->directoryPath, 0755, true);
+
         }
     }
 

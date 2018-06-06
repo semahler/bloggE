@@ -23,12 +23,12 @@
                 <div class="uk-container">
                     <div uk-navbar>
                         <div class="uk-navbar-left">
-                            <a class="uk-navbar-item uk-logo" href="<?php echo APPLICATION_ROOT_DIR; ?>"><img data-src="<?php echo APPLICATION_ROOT_DIR; ?>/static/logo.png" width="" height="100%" alt="" uk-img></a>
+                            <a class="uk-navbar-item uk-logo" href="<?php echo NAV_PATH_HOME ?>"><img data-src="<?php echo APPLICATION_ROOT_DIR; ?>/static/logo.png" width="" height="100%" alt="" uk-img></a>
                         </div>
 
                         <div class="uk-navbar-right">
                             <ul class="uk-navbar-nav uk-visible@m">
-                                <li class="uk-active"><a href="<?php echo APPLICATION_ROOT_DIR; ?>">Home</a></li>
+                                <li class="uk-active"><a href="<?php echo NAV_PATH_HOME; ?>">Home</a></li>
                                 <li>
                                     <a href="#">Admin</a>
                                     <div class="uk-navbar-dropdown">

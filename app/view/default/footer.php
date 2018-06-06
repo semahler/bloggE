@@ -12,7 +12,7 @@
         <div class="uk-offcanvas-bar uk-offcanvas-bar-animation uk-offcanvas-slide">
             <button class="uk-offcanvas-close uk-close uk-icon" type="button" data-uk-close></button>
             <ul class="uk-nav uk-nav-default">
-                <li class="uk-active"><a href="<?php echo APPLICATION_ROOT_DIR; ?>">Home</a></li>
+                <li class="uk-active"><a href="<?php echo NAV_PATH_HOME; ?>">Home</a></li>
                 <li class="uk-nav-divider"></li>
                 <li class=""><a href="<?php echo NAV_PATH_ADMIN_NEW_POST; ?>">New Post</a></li>
                 <li class=""><a href="<?php echo NAV_PATH_ADMIN_SELECT_POST; ?>">Edit Post</a></li>

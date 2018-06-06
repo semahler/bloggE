@@ -13,7 +13,7 @@ define ('DATA_DIR', APP_DIR . 'data/');
 define ('MODEL_DIR', APP_DIR . 'model/');
 define ('VIEW_DIR', APP_DIR . 'view/');
 define ('UPLOAD_DIR', DATA_DIR . 'uploads/');
-define ('STATIC_DIR', SUB_DIR . '/static');
+define ('STATIC_DIR', APPLICATION_ROOT_DIR . '/static');
 
 define ('PAGE_HEAD_TEMPLATE_PATH', VIEW_DIR . 'default/header.php');
 define ('PAGE_FOOT_TEMPLATE_PATH', VIEW_DIR . 'default/footer.php');
