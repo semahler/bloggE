@@ -38,18 +38,18 @@ error_reporting(E_ALL & ~E_NOTICE);
  */
 define ('NAV_PATH_HOME', APPLICATION_ROOT_DIR. '/');
 
-define ('NAV_PATH_ADMIN_NEW_POST', APPLICATION_ROOT_DIR. '/admin/new-post');
-define ('NAV_PATH_ADMIN_SELECT_POST', APPLICATION_ROOT_DIR . '/admin/select-post');
-define ('NAV_PATH_ADMIN_EDIT_POST', APPLICATION_ROOT_DIR . '/admin/edit-post');
-define ('NAV_PATH_ADMIN_DELETE_POST', APPLICATION_ROOT_DIR . '/admin/delete-post');
-define ('NAV_PATH_ADMIN_SAVE_POST', APPLICATION_ROOT_DIR . '/admin/save-post');
-define ('NAV_PATH_ADMIN_MANAGE_PICTURE', APPLICATION_ROOT_DIR . '/admin/manage-picture');
-define ('NAV_PATH_ADMIN_SAVE_PICTURE', APPLICATION_ROOT_DIR . '/admin/save-picture');
-define ('NAV_PATH_ADMIN_DELETE_PICTURE', APPLICATION_ROOT_DIR . '/admin/delete-picture');
+define ('NAV_PATH_ADMIN_NEW_POST', APPLICATION_ROOT_DIR. '/admin/new-post/');
+define ('NAV_PATH_ADMIN_SELECT_POST', APPLICATION_ROOT_DIR . '/admin/select-post/');
+define ('NAV_PATH_ADMIN_EDIT_POST', APPLICATION_ROOT_DIR . '/admin/edit-post/');
+define ('NAV_PATH_ADMIN_DELETE_POST', APPLICATION_ROOT_DIR . '/admin/delete-post/');
+define ('NAV_PATH_ADMIN_SAVE_POST', APPLICATION_ROOT_DIR . '/admin/save-post/');
+define ('NAV_PATH_ADMIN_MANAGE_PICTURE', APPLICATION_ROOT_DIR . '/admin/manage-picture/');
+define ('NAV_PATH_ADMIN_SAVE_PICTURE', APPLICATION_ROOT_DIR . '/admin/save-picture/');
+define ('NAV_PATH_ADMIN_DELETE_PICTURE', APPLICATION_ROOT_DIR . '/admin/delete-picture/');
 
-define ('NAV_PATH_INDEX_PAGE', APPLICATION_ROOT_DIR . '/index/page');
-define ('NAV_PATH_INDEX_READ', APPLICATION_ROOT_DIR . '/index/read');
-define ('NAV_PATH_INDEX_SAVE_COMMENT', APPLICATION_ROOT_DIR . '/index/save-comment');
+define ('NAV_PATH_INDEX_PAGE', APPLICATION_ROOT_DIR . '/index/page/');
+define ('NAV_PATH_INDEX_READ', APPLICATION_ROOT_DIR . '/index/read/');
+define ('NAV_PATH_INDEX_SAVE_COMMENT', APPLICATION_ROOT_DIR . '/index/save-comment/');
 
 
 

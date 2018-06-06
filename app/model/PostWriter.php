@@ -7,6 +7,7 @@ class PostWriter
     protected $createdAt;
     protected $updatedAt;
     protected $directoryPath;
+    protected $postFile;
 
     public function __construct()
     {
@@ -28,6 +29,8 @@ class PostWriter
         if (!$this->createdAt) {
             $this->createdAt = time();
         }
+
+        $this->postFile = $this->directoryPath . FILENAME_POST;
     }
 
     public function savePost()
@@ -78,9 +81,7 @@ class PostWriter
 
     protected function writeJsonStringToFile($jsonString)
     {
-        $fileName = $this->directoryPath . '/post.json';
-
-        $handle = fopen($fileName, 'w');
+        $handle = fopen($this->postFile, 'w');
 
         fwrite($handle, $jsonString);
 

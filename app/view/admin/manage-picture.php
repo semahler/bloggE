@@ -42,7 +42,7 @@
                                 <td><?php echo $picture['size']; ?></td>
                                 <td>
                                     <div class="uk-button-group">
-                                        <a class="uk-button uk-button-danger uk-button-small save-delete" href="/admin/delete-picture/?filename=<?php echo urlencode($picture['name']); ?>">DELETE</a>
+                                        <a class="uk-button uk-button-danger uk-button-small save-delete" href="<?php echo NAV_PATH_ADMIN_DELETE_PICTURE; ?>?filename=<?php echo urlencode($picture['name']); ?>">DELETE</a>
                                     </div>
                                 </td>
                             </tr>
