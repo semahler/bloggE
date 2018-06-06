@@ -4,15 +4,23 @@ class PostReader extends AbstractReader
 {
     protected $directoryPath;
 
-    public function __construct()
-    {
-    }
-
+    /**
+     * Set the directory path of the post file to read
+     *
+     * @param string $directoryName
+     */
     public function setPostDirectory($directoryName)
     {
         $this->directoryPath = DATA_DIR . $directoryName;
     }
 
+    /**
+     * Get all data of a post and return it as an array
+     *
+     * @param bool $textPreviewMode
+     * @param bool $parseText
+     * @return array|mixed
+     */
     public function getPost($textPreviewMode = false, $parseText = true)
     {
         $post = [];
@@ -29,6 +37,11 @@ class PostReader extends AbstractReader
         return $post;
     }
 
+    /**
+     * Read out all available directories in the data-directory
+     *
+     * @return array
+     */
     public function readPostDirectories()
     {
         $directoryArr = [];
@@ -50,6 +63,11 @@ class PostReader extends AbstractReader
         return $directoryArr;
     }
 
+    /**
+     * Check if the directory and the file with the post exists at the expected path
+     *
+     * @return bool
+     */
     protected function checkPostDirectory()
     {
         if (is_dir($this->directoryPath)) {
@@ -61,6 +79,15 @@ class PostReader extends AbstractReader
         return false;
     }
 
+    /**
+     * Collect and format the post
+     * e.g. parsing the markdown content or limit the length for a preview
+     *
+     * @param array $post
+     * @param bool $textPreviewMode
+     * @param bool $parseText
+     * @return mixed
+     */
     protected function preparePostData($post, $textPreviewMode, $parseText)
     {
         if ($parseText) {
@@ -80,6 +107,12 @@ class PostReader extends AbstractReader
         return $post;
     }
 
+    /**
+     * Create the text-preview by limiting the number of chars
+     *
+     * @param string $text
+     * @return string
+     */
     protected function generateTextPreview($text)
     {
         if (strlen($text) > TEXT_PREVIEW_LENGTH) {

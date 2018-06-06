@@ -2,29 +2,40 @@
 
 class indexController extends Controller
 {
+
+    /**
+     * Action to display a post with relevant data on the main-pages of the blog
+     *
+     * @param int $pageNumber
+     */
     public function pageAction($pageNumber = 1)
     {
         $postReader = new PostReader();
-        $postDirectories = $postReader->readPostDirectories();
+        $postDirectories = $postReader->readPostDirectories(); // get all directories
 
         $commentReader = new CommentReader();
 
         $posts = [];
+        //get all posts inside the directories
         foreach ($postDirectories as $postDirectory) {
             $postReader->setPostDirectory($postDirectory);
             $post = $postReader->getPost(true);
 
+            // get saved comments to display the number
             $commentReader->setPostDirectory($postDirectory);
             $post['post_comment_count'] = $commentReader->getCommentCountForPost();
 
             $posts[] = $post;
         }
 
+        // get the last n-posts to display in the sidebar
         $latestPosts = $this->slicePosts($posts, 0, NUMBER_OF_LATEST_POSTS);
 
+        // create the pagination
         $totalNumberOfPosts = sizeof($posts);
         $pagination = $this->getPagination($totalNumberOfPosts, $pageNumber);
 
+        // splitting an displaying the correct posts on the different pages
         $postOffset = $this->getPostOffsetByPageNumber($pageNumber);
         $posts = $this->slicePosts($posts, $postOffset, POSTS_PER_PAGE);
 
@@ -41,6 +52,11 @@ class indexController extends Controller
         $this->view->render();
     }
 
+    /**
+     * Action to display all available posts information and to read/create comments
+     *
+     * @param string $post_createdAt
+     */
     public function readAction($post_createdAt)
     {
         if (!$post_createdAt) {
@@ -79,6 +95,14 @@ class indexController extends Controller
         $this->view->render();
     }
 
+    /**
+     * Action to save a new comment for a post
+     *
+     * @param string $commentAuthor
+     * @param string $commentEmail
+     * @param string $commentContent
+     * @param string $postCreatedAt
+     */
     public function saveCommentAction($commentAuthor, $commentEmail, $commentContent, $postCreatedAt)
     {
         $commentWriter = new CommentWriter();
@@ -88,6 +112,14 @@ class indexController extends Controller
         $commentWriter->saveComment();
     }
 
+    /**
+     * Creates the pagination for the sites and set the correct classes
+     *
+     * @param int $totalNumberOfPosts
+     * @param int $currentPage
+     *
+     * @return array
+     */
     protected function getPagination($totalNumberOfPosts, $currentPage)
     {
         $paginationArr = [];
@@ -110,6 +142,12 @@ class indexController extends Controller
         return $paginationArr;
     }
 
+    /**
+     * Calculates the array-index of the last post displaying on a page
+     *
+     * @param int $pageNumber
+     * @return float|int
+     */
     protected function getPostOffsetByPageNumber($pageNumber)
     {
         $offset = 0;
@@ -121,6 +159,15 @@ class indexController extends Controller
         return $offset;
     }
 
+    /**
+     * Splits the whole array and returns only a section of it for a page
+     *
+     * @param array $postArray
+     * @param int $offset
+     * @param int $length
+     *
+     * @return array
+     */
     protected function slicePosts($postArray, $offset, $length)
     {
         $postArray = array_slice($postArray, $offset, $length);

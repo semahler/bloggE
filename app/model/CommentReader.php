@@ -4,15 +4,21 @@ class CommentReader extends AbstractReader
 {
     protected $directoryPath;
 
-    public function __construct()
-    {
-    }
-
+    /**
+     * Set the directory path of the comment file to read
+     *
+     * @param string $directoryName
+     */
     public function setPostDirectory($directoryName)
     {
         $this->directoryPath = DATA_DIR . $directoryName;
     }
 
+    /**
+     * Get all comments from the file
+     *
+     * @return array
+     */
     public function getComments()
     {
         $comments = [];
@@ -29,6 +35,11 @@ class CommentReader extends AbstractReader
 
     }
 
+    /**
+     * Get the number of comments for a post
+     *
+     * @return int
+     */
     public function getCommentCountForPost()
     {
         $comments = $this->getComments();

@@ -9,15 +9,24 @@ class PostWriter
     protected $directoryPath;
     protected $postFile;
 
-    public function __construct()
-    {
-    }
 
+    /**
+     * Set the directory path of the post file to write
+     *
+     * @param string $directoryName
+     */
     public function setPostDirectory($directoryName)
     {
         $this->directoryPath = DATA_DIR . $directoryName;
     }
 
+    /**
+     *  Parse the data from the model to the class var's
+     *
+     * @param string $postTitle
+     * @param string $postContent
+     * @param string $postCreatedAt
+     */
     public function setPostData($postTitle, $postContent, $postCreatedAt)
     {
         $this->title = $postTitle;
@@ -32,6 +41,10 @@ class PostWriter
         $this->postFile = $this->directoryPath . '/' . FILENAME_POST;
     }
 
+    /**
+     * Generate an array with the post data, convert it to json and
+     * write the content into a file
+     */
     public function savePost()
     {
         $this->createPostDirectory();
@@ -40,6 +53,9 @@ class PostWriter
         $this->writeJsonStringToFile($jsonString);
     }
 
+    /**
+     * Delete a post and the comment-file from the server
+     */
     public function deletePost()
     {
         $postFile = $this->directoryPath . '/' . FILENAME_POST;
@@ -55,6 +71,9 @@ class PostWriter
         @rmdir($this->directoryPath);
     }
 
+    /**
+     * Create a new directory for a post, if not exists
+     */
     protected function createPostDirectory()
     {
         if(!is_dir($this->directoryPath)) {
@@ -63,6 +82,11 @@ class PostWriter
         }
     }
 
+    /**
+     * Generate an array with the data of a post and convert it to json string
+     *
+     * @return string
+     */
     protected function createJsonStringToSave()
     {
         $this->updatedAt = time();
@@ -79,6 +103,11 @@ class PostWriter
         return $json;
     }
 
+    /**
+     * Write the json-ified post to the post-file
+     *
+     * @param string $jsonString
+     */
     protected function writeJsonStringToFile($jsonString)
     {
         $handle = fopen($this->postFile, 'w');

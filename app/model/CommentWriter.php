@@ -12,11 +12,22 @@ class CommentWriter
     protected $commentFile;
     protected $commentReader;
 
+    /**
+     * CommentWriter constructor.
+     */
     public function __construct()
     {
         $this->commentReader = new CommentReader();
     }
 
+    /**
+     * Parse the data from the model to the class var's
+     *
+     * @param string $commentAuthor
+     * @param string $commentEmail
+     * @param string $commentContent
+     * @param string $postCreatedAt
+     */
     public function setCommentData($commentAuthor, $commentEmail, $commentContent, $postCreatedAt)
     {
         $this->author = $commentAuthor;
@@ -30,6 +41,10 @@ class CommentWriter
         $this->commentFile = $directoryPath . '/' . FILENAME_COMMENTS;
     }
 
+    /**
+     * Generate an array with the comment data, convert it to json and
+     * write the content into a file
+     */
     public function saveComment()
     {
         $commentArray = $this->createCommentArray();
@@ -39,6 +54,11 @@ class CommentWriter
         $this->writeJsonStringToFile($jsonString);
     }
 
+    /**
+     * Generate and return a array with the comment data
+     *
+     * @return array
+     */
     protected function createCommentArray()
     {
         return [
@@ -49,6 +69,13 @@ class CommentWriter
         ];
     }
 
+    /**
+     * Read out existing comments, add the new one to the array
+     * and convert it to json string
+     *
+     * @param array $comment
+     * @return string
+     */
     public function createJsonStringToSave(array $comment)
     {
         $json = "";
@@ -62,6 +89,11 @@ class CommentWriter
         return $json;
     }
 
+    /**
+     * Read out and returns an array of all comments for a post
+     *
+     * @return array
+     */
     protected function getExistingComments()
     {
         $comments = [];
@@ -72,6 +104,11 @@ class CommentWriter
         return $comments;
     }
 
+    /**
+     * Write the json-ified comments to the comment file
+     *
+     * @param string $jsonString
+     */
     protected function writeJsonStringToFile($jsonString)
     {
         $handle = fopen($this->commentFile, 'w');

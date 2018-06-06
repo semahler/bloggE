@@ -5,11 +5,19 @@ class PictureManager
     protected $directoryPath;
     protected $pictureFileName;
 
+    /**
+     * PictureManager constructor.
+     */
     public function __construct()
     {
         $this->directoryPath = UPLOAD_DIR;
     }
 
+    /**
+     * Uploading a picture to the upload-directory
+     *
+     * @param array $picture
+     */
     public function uploadPicture(array $picture)
     {
         if (!$this->checkUploadDirectory()) {
@@ -22,6 +30,11 @@ class PictureManager
         // ToDo: Fehlerbehandlung
     }
 
+    /**
+     * Read out all pictures from the upload-directory
+     *
+     * @return array
+     */
     public function getUploadedPictures()
     {
         $pictures = [];
@@ -43,6 +56,11 @@ class PictureManager
         return $pictures;
     }
 
+    /**
+     * Delete a picture from the server
+     *
+     * @param string $fileName
+     */
     public function deletePicture($fileName)
     {
         $pictureFile = $this->directoryPath . '/' . $fileName;
@@ -51,6 +69,11 @@ class PictureManager
         }
     }
 
+    /**
+     * Check, if the defined upload directory exists
+     *
+     * @return bool
+     */
     protected function checkUploadDirectory()
     {
         if(!is_dir($this->directoryPath)) {
@@ -60,11 +83,20 @@ class PictureManager
         return true;
     }
 
+    /**
+     * Create the upload directory
+     */
     protected function createUploadDirectory()
     {
         mkdir($this->directoryPath, 0755, true);
     }
 
+    /**
+     * Collect some information for a picture
+     *
+     * @param string $file
+     * @return array
+     */
     protected function preparePictureData($file) {
         $picture = [];
 
@@ -77,6 +109,12 @@ class PictureManager
         return $picture;
     }
 
+    /**
+     * Converts the filesize in byte to a human readable format
+     *
+     * @param string $file
+     * @return string
+     */
     protected function getFormattedFileSizeForFile($file)
     {
         $filesize = filesize($file);
@@ -87,6 +125,12 @@ class PictureManager
         return number_format($filesize / pow(1024, $power), 2, '.', ',') . ' ' . $units[$power];
     }
 
+    /**
+     * Get the relative-path of a picture
+     *
+     * @param string $picturePath
+     * @return mixed|string
+     */
     protected function getRelativePicturePath($picturePath)
     {
         $picturePath = str_replace(BASE_DIR, "", $picturePath);

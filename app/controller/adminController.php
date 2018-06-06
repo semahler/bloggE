@@ -3,6 +3,9 @@
 class adminController extends Controller
 {
 
+    /**
+     * Action to create a new post
+     */
     public function newPostAction()
     {
         $this->view('admin/new-post',
@@ -14,6 +17,9 @@ class adminController extends Controller
         $this->view->render();
     }
 
+    /**
+     * Action to read all saved posts and display it in a table
+     */
     public function selectPostAction()
     {
         $postReader = new PostReader();
@@ -37,6 +43,11 @@ class adminController extends Controller
         $this->view->render();
     }
 
+    /**
+     * Action to load the saved data for a specified post and display it in the edit-form
+     *
+     * @param string $post_createdAt
+     */
     public function editPostAction($post_createdAt)
     {
         $postReader = new PostReader();
@@ -53,6 +64,11 @@ class adminController extends Controller
         $this->view->render();
     }
 
+    /**
+     * Action to delete a specified post
+     *
+     * @param string $post_createdAt
+     */
     public function deletePostAction($post_createdAt)
     {
         $postWriter = new PostWriter();
@@ -64,6 +80,13 @@ class adminController extends Controller
         header($redirect);
     }
 
+    /**
+     * Action to save a new or edited posts
+     *
+     * @param string $postTitle
+     * @param string $postContent
+     * @param string $postCreatedAt
+     */
     public function savePostAction($postTitle, $postContent, $postCreatedAt = '')
     {
         $postWriter = new PostWriter();
@@ -75,6 +98,9 @@ class adminController extends Controller
         header($redirect);
     }
 
+    /**
+     * Action to read all saved posts and display it in a table
+     */
     public function managePictureAction()
     {
         $pictureManager = new PictureManager();
@@ -90,6 +116,11 @@ class adminController extends Controller
         $this->view->render();
     }
 
+    /**
+     * Action to upload a new picture to the server
+     *
+     * @param string $picture
+     */
     public function savePictureAction($picture)
     {
         $pictureManager = new PictureManager();
@@ -100,6 +131,11 @@ class adminController extends Controller
         header($redirect);
     }
 
+    /**
+     * Action to delete a specified picture from the server
+     *
+     * @param string $pictureName
+     */
     public function deletePictureAction($pictureName)
     {
         $pictureManager = new PictureManager();
@@ -110,7 +146,5 @@ class adminController extends Controller
         $redirect = sprintf('Location: %s', NAV_PATH_ADMIN_MANAGE_PICTURE);
         header($redirect);
     }
-
-
 
 }
