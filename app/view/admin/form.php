@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <input type="hidden" name="createdAt" value="<?php echo $this->view_data['post']['post_created_at']; ?>" />
+    <input type="hidden" name="createdAt" value="<?php echo $this->view_data['post']['id']; ?>" />
 
     <hr />
 
