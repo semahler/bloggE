@@ -1,4 +1,4 @@
-<form class="uk-form-stacked" action="<?php echo NAV_PATH_ADMIN_SAVE_POST; ?>" method="POST">
+<form id="post_form" class="uk-form-stacked" action="<?php echo NAV_PATH_ADMIN_SAVE_POST; ?>" method="POST">
     <div class="uk-margin">
         <label class="uk-form-label" for="title">Title</label>
         <div class="uk-form-controls">

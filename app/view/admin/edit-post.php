@@ -4,7 +4,7 @@
             <div class="uk-width-1-1">
                 <h1 class="uk-heading-line uk-text-center"><span>Edit Post</span></h1>
 
-                <?php include_once 'form.php'; ?>
+                <?php include_once 'post-form.php'; ?>
 
             </div>
         </div>
