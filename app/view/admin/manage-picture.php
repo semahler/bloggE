@@ -5,10 +5,10 @@
                 <h1 class="uk-heading-line uk-text-center"><span>Upload or delete pictures</span></h1>
 
                 <h4 class="uk-text-bold uk-margin-small-bottom uk-heading-line"><span>Upload a new picture</span></h4>
-                <form action="<?php echo NAV_PATH_ADMIN_SAVE_PICTURE; ?>" method="POST" enctype="multipart/form-data">
+                <form id="image_upload_form" action="<?php echo NAV_PATH_ADMIN_SAVE_PICTURE; ?>" method="POST" enctype="multipart/form-data">
                     <div class="uk-margin" uk-margin>
                         <div uk-form-custom="target: true">
-                            <input type="file" name="fileToUpload" id="fileToUpload">
+                            <input type="file" name="fileToUpload" id="fileToUpload" required>
 
                             <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
                         </div>

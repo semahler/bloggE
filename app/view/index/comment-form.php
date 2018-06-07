@@ -1,4 +1,4 @@
-<form class="uk-form-stacked" action="<?php echo NAV_PATH_INDEX_SAVE_COMMENT; ?>" method="POST">
+<form id="comment_form" class="uk-form-stacked" action="<?php echo NAV_PATH_INDEX_SAVE_COMMENT; ?>" method="POST">
     <div class="uk-margin">
         <label class="uk-form-label" for="name">Name</label>
         <div class="uk-form-controls">
