@@ -17,6 +17,7 @@ class PictureManager
      * Uploading a picture to the upload-directory
      *
      * @param array $picture
+     * @return int
      */
     public function uploadPicture(array $picture)
     {
@@ -26,8 +27,21 @@ class PictureManager
 
         $this->pictureFileName = $this->directoryPath . basename($picture['name']);
 
+        if ((($picture['size']/1024) > PICTURE_UPLOAD_MAX_FILESIZE) || ($picture['error'] == 1)) {
+            return 1;
+        }
+
+        if (!in_array($picture['type'], PICTURE_UPLOAD_FILETYPES)) {
+            return 2;
+        }
+
+        if ($picture['error'] != 0) {
+            return 3;
+        }
+
         move_uploaded_file($picture['tmp_name'], $this->pictureFileName);
-        // ToDo: Fehlerbehandlung
+
+        return 0;
     }
 
     /**

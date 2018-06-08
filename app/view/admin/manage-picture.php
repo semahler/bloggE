@@ -4,6 +4,17 @@
             <div class="uk-width-1-1">
                 <h1 class="uk-heading-line uk-text-center"><span>Upload or delete pictures</span></h1>
 
+                <?php
+                if ($this->view_data['errorMessage'] != "") {
+                ?>
+                <div class="uk-alert-danger" uk-alert>
+                    <a class="uk-alert-close" uk-close></a>
+                    <p><?php echo $this->view_data['errorMessage']; ?></p>
+                </div>
+                <?php
+                }
+                ?>
+
                 <h4 class="uk-text-bold uk-margin-small-bottom uk-heading-line"><span>Upload a new picture</span></h4>
                 <form id="image_upload_form" action="<?php echo NAV_PATH_ADMIN_SAVE_PICTURE; ?>" method="POST" enctype="multipart/form-data">
                     <div class="uk-margin" uk-margin>

@@ -27,6 +27,8 @@ define ('FILENAME_POST', 'post.json');
 define ('FILENAME_COMMENTS', 'comments.json');
 define ('DEFAULT_TITLE', 'bloggE - Blogging Platform');
 define ('TEXT_PREVIEW_LENGTH', 400);
+define ('PICTURE_UPLOAD_MAX_FILESIZE', 2048); // unit: kbyte
+define ('PICTURE_UPLOAD_FILETYPES', ['image/jpeg', 'image/png', 'image/gif']);
 
 /**
  * Show php-errors and hide notices

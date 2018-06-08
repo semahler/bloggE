@@ -100,16 +100,35 @@ class adminController extends Controller
 
     /**
      * Action to read all saved posts and display it in a table
+     *
+     * @param string $error
      */
-    public function managePictureAction()
+    public function managePictureAction($error = '')
     {
         $pictureManager = new PictureManager();
         $pictures = $pictureManager->getUploadedPictures();
 
+        $errorMessage = "";
+        switch ($error) {
+            case 'unknown_error':
+                $errorMessage = "An unknown error occurred while uploading the picture.";
+            break;
+            case 'error_wrong_file_type':
+                $validFileTypes = implode(",", PICTURE_UPLOAD_FILETYPES);
+                $validFileTypes = str_replace("image/", "", $validFileTypes);
+
+                $errorMessage = sprintf("Only files of the types %s are allowed", $validFileTypes);
+            break;
+            case 'error_file_size' :
+                $errorMessage = sprintf("The maximum file size for uploads is %s kb", PICTURE_UPLOAD_MAX_FILESIZE);
+            break;
+        }
+
         $this->view('admin/manage-picture',
             [
                 'title' => "Upload pictures",
-                'pictures' => $pictures
+                'pictures' => $pictures,
+                'errorMessage' => $errorMessage
             ]
         );
 
@@ -119,15 +138,29 @@ class adminController extends Controller
     /**
      * Action to upload a new picture to the server
      *
-     * @param string $picture
+     * @param array $picture
      */
     public function savePictureAction($picture)
     {
         $pictureManager = new PictureManager();
 
-        $pictureManager->uploadPicture($picture);
+        $result = $pictureManager->uploadPicture($picture);
 
-        $redirect = sprintf('Location: %s', NAV_PATH_ADMIN_MANAGE_PICTURE);
+        switch ($result) {
+            case 3:
+                $redirectUrl = NAV_PATH_ADMIN_MANAGE_PICTURE . 'unknown_error';
+            break;
+            case 2:
+                $redirectUrl = NAV_PATH_ADMIN_MANAGE_PICTURE . 'error_wrong_file_type';
+                break;
+            case 1:
+                $redirectUrl = NAV_PATH_ADMIN_MANAGE_PICTURE . 'error_file_size';
+                break;
+            default:
+                $redirectUrl = NAV_PATH_ADMIN_MANAGE_PICTURE;
+        }
+
+        $redirect = sprintf('Location: %s', $redirectUrl);
         header($redirect);
     }
 
