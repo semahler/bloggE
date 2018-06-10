@@ -38,18 +38,18 @@ error_reporting(E_ALL & ~E_NOTICE);
  */
 define ('NAV_PATH_HOME', '/');
 
-define ('NAV_PATH_ADMIN_NEW_POST', '/admin/new-post/');
-define ('NAV_PATH_ADMIN_SELECT_POST', '/admin/select-post/');
-define ('NAV_PATH_ADMIN_EDIT_POST', '/admin/edit-post/');
-define ('NAV_PATH_ADMIN_DELETE_POST', '/admin/delete-post/');
-define ('NAV_PATH_ADMIN_SAVE_POST', '/admin/save-post/');
-define ('NAV_PATH_ADMIN_MANAGE_PICTURE', '/admin/manage-picture/');
-define ('NAV_PATH_ADMIN_SAVE_PICTURE', '/admin/save-picture/');
-define ('NAV_PATH_ADMIN_DELETE_PICTURE', '/admin/delete-picture/');
+define ('NAV_PATH_ADMIN_NEW_POST',  SUB_DIR . '/admin/new-post/');
+define ('NAV_PATH_ADMIN_SELECT_POST', SUB_DIR . '/admin/select-post/');
+define ('NAV_PATH_ADMIN_EDIT_POST', SUB_DIR . '/admin/edit-post/');
+define ('NAV_PATH_ADMIN_DELETE_POST', SUB_DIR . '/admin/delete-post/');
+define ('NAV_PATH_ADMIN_SAVE_POST', SUB_DIR . '/admin/save-post/');
+define ('NAV_PATH_ADMIN_MANAGE_PICTURE', SUB_DIR . '/admin/manage-picture/');
+define ('NAV_PATH_ADMIN_SAVE_PICTURE', SUB_DIR . '/admin/save-picture/');
+define ('NAV_PATH_ADMIN_DELETE_PICTURE', SUB_DIR . '/admin/delete-picture/');
 
-define ('NAV_PATH_INDEX_PAGE', '/index/page/');
-define ('NAV_PATH_INDEX_READ', '/index/read/');
-define ('NAV_PATH_INDEX_SAVE_COMMENT', '/index/save-comment/');
+define ('NAV_PATH_INDEX_PAGE', SUB_DIR . '/index/page/');
+define ('NAV_PATH_INDEX_READ', SUB_DIR . '/index/read/');
+define ('NAV_PATH_INDEX_SAVE_COMMENT', SUB_DIR . '/index/save-comment/');
 
 
 

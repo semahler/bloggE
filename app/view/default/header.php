@@ -6,13 +6,13 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.2/css/uikit.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.css">
-    <link rel="stylesheet" href="/static/css/styles.css"/>
+    <link rel="stylesheet" href="<?php echo SUB_DIR; ?>/static/css/styles.css"/>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.2/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.2/js/uikit-icons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/simplemde/1.11.2/simplemde.min.js"></script>
-    <script src="/static/js/scripts.js"></script>
+    <script src="<?php echo SUB_DIR; ?>/static/js/scripts.js"></script>
 
     <title><?php echo isset($this->view_data['title']) ? $this->view_data['title'] : 'bloggE - Startseite'; ?></title>
 </head>
@@ -23,7 +23,7 @@
                 <div class="uk-container">
                     <div uk-navbar>
                         <div class="uk-navbar-left">
-                            <a class="uk-navbar-item uk-logo" href="<?php echo NAV_PATH_HOME ?>"><img data-src="/static/logo.png" width="" height="100%" alt="" uk-img></a>
+                            <a class="uk-navbar-item uk-logo" href="<?php echo NAV_PATH_INDEX_PAGE ?>"><img data-src="<?php echo SUB_DIR; ?>/static/logo.png" width="" height="100%" alt="" uk-img></a>
                         </div>
                         <div class="uk-navbar-right">
                             <ul class="uk-navbar-nav uk-visible@m">
