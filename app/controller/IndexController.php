@@ -59,14 +59,9 @@ class IndexController extends Controller
      */
     public function readAction($post_createdAt)
     {
-        if (!$post_createdAt) {
-
-        }
-
         $postReader = new PostReader();
         $postReader->setPostDirectory($post_createdAt);
         $post = $postReader->getPost();
-
 
         $postDirectories = $postReader->readPostDirectories();
 
@@ -91,7 +86,14 @@ class IndexController extends Controller
         $this->view->render();
     }
 
-
+    /**
+     * Save a new written comment and returns a response via json
+     *
+     * @param string $commentAuthor
+     * @param string $commentEmail
+     * @param string $commentContent
+     * @param string $postCreatedAt
+     */
     public function saveCommentAction($commentAuthor, $commentEmail, $commentContent, $postCreatedAt)
     {
         $jsonData = [];
@@ -107,6 +109,12 @@ class IndexController extends Controller
         echo json_encode($jsonData);
     }
 
+    /**
+     * Load all saved comments of a post an returns a html-response
+     *
+     * @param string $postIdentifier
+     * @return string
+     */
     public function getCommentsAction($postIdentifier)
     {
         $commentReader = new CommentReader();
