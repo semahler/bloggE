@@ -1,8 +1,18 @@
 <?php
 
-$modules = [BASE_DIR, APP_DIR, CONTROLLER_DIR, CORE_DIR, MODEL_DIR, VIEW_DIR];
+spl_autoload_register(function($className) {
 
-set_include_path(get_include_path() . PATH_SEPARATOR . implode(PATH_SEPARATOR, $modules));
+    // Defining an array of all include-directories
+    $modules = [APP_DIR, CORE_DIR, CONTROLLER_DIR, MODEL_DIR, VIEW_DIR];
 
-spl_autoload_register('spl_autoload', false);
+    //Loop through each directory to find the requested class
+    foreach( $modules as $module ) {
+        if (file_exists($module . ucfirst($className) . '.php')) {
 
+            require_once($module . ucfirst($className) . '.php');
+
+            return;
+        }
+    }
+
+});

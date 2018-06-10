@@ -3,7 +3,7 @@
 
 class Application
 {
-    protected $controller = 'indexController';
+    protected $controller = 'IndexController';
     protected $action = 'pageAction';
     protected $params = [];
 
@@ -43,7 +43,7 @@ class Application
 
             // Set the controller
             if (!empty($requestUrl[0])) {
-                $this->controller = $requestUrl[0].'Controller';
+                $this->controller = ucfirst($requestUrl[0]).'Controller';
             }
 
             // Set the action (method=
