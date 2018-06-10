@@ -28,6 +28,16 @@ $( document ).ready(function() {
     });
 
     /**
+     * initial loading of the comments when the page is called
+     */
+    var commentSection = $("div#comments_section");
+    if (commentSection.length > 0) {
+        var postIdentifier = commentSection.attr("data-id");
+
+        reloadComments(postIdentifier);
+    }
+
+    /**
      * Collect comment-data and send it to the server
      */
     $('form#comment-form').submit(function(event) {
@@ -84,7 +94,6 @@ $( document ).ready(function() {
     function reloadComments(postIdentifier) {
         var submitStatusArea = $("div#submit_status");
         var submitStatusText = $("div#submit_status > p");
-        submitStatusArea.removeClass("uk-hidden");
 
         if (postIdentifier === undefined) {
             submitStatusArea.addClass("uk-alert-danger");

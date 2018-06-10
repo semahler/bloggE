@@ -41,7 +41,7 @@
 
                 <hr />
 
-                <div id="comments_section"></div>
+                <div id="comments_section" data-id="<?php echo $this->view_data['post']['id'];?>"></div>
 
             </div>
         </div>
