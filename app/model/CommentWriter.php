@@ -51,7 +51,7 @@ class CommentWriter
 
         $jsonString = $this->createJsonStringToSave($commentArray);
 
-        $this->writeJsonStringToFile($jsonString);
+        return $this->writeJsonStringToFile($jsonString);
     }
 
     /**
@@ -107,13 +107,19 @@ class CommentWriter
     /**
      * Write the json-ified comments to the comment file
      *
-     * @param string $jsonString
+     * @param $jsonString
+     * @return bool
      */
     protected function writeJsonStringToFile($jsonString)
     {
         $handle = fopen($this->commentFile, 'w');
-        fwrite($handle, $jsonString);
+
+        if (!fwrite($handle, $jsonString)) {
+            return false;
+        }
 
         fclose($handle);
+
+        return true;
     }
 }

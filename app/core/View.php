@@ -4,17 +4,20 @@ class View
 {
     protected $view_file;
     protected $view_data;
+    protected $show_header;
 
     /**
      * View constructor.
      *
      * @param string $view_file
      * @param array $view_data
+     * @param bool $show_header
      */
-    public function __construct($view_file, $view_data)
+    public function __construct($view_file, $view_data, $show_header)
     {
         $this->view_file = $view_file;
         $this->view_data = $view_data;
+        $this->show_header = $show_header;
     }
 
     /**
@@ -22,7 +25,9 @@ class View
      */
     public function render()
     {
-        require_once PAGE_HEAD_TEMPLATE_PATH;
+        if ($this->show_header) {
+            require_once PAGE_HEAD_TEMPLATE_PATH;
+        }
 
         if (file_exists(VIEW_DIR . $this->view_file . '.php')) {
             require_once VIEW_DIR . $this->view_file . '.php';
@@ -30,7 +35,9 @@ class View
             // TODO: Add error-page
         }
 
-        require_once PAGE_FOOT_TEMPLATE_PATH;
+        if ($this->show_header) {
+            require_once PAGE_FOOT_TEMPLATE_PATH;
+        }
     }
 
     /**

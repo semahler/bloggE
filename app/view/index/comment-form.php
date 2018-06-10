@@ -1,4 +1,10 @@
-<form id="comment_form" class="uk-form-stacked" action="<?php echo NAV_PATH_INDEX_SAVE_COMMENT; ?>" method="POST">
+<div id="submit_status" class="uk-hidden" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p></p>
+</div>
+
+<form id="comment-form" class="uk-form-stacked" method="POST">
+
     <div class="uk-margin">
         <label class="uk-form-label" for="name">Name</label>
         <div class="uk-form-controls">
@@ -20,7 +26,7 @@
         </div>
     </div>
 
-    <input type="hidden" name="createdAt" value="<?php echo $this->view_data['post']['id']; ?>" />
+    <input type="hidden" id="createdAt" name="createdAt" value="<?php echo $this->view_data['post']['id']; ?>" />
 
     <hr />
 

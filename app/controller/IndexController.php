@@ -59,17 +59,9 @@ class IndexController extends Controller
      */
     public function readAction($post_createdAt)
     {
-        if (!$post_createdAt) {
-
-        }
-
         $postReader = new PostReader();
         $postReader->setPostDirectory($post_createdAt);
         $post = $postReader->getPost();
-
-        $commentReader = new CommentReader();
-        $commentReader->setPostDirectory($post_createdAt);
-        $comments = $commentReader->getComments();
 
         $postDirectories = $postReader->readPostDirectories();
 
@@ -86,7 +78,6 @@ class IndexController extends Controller
             [
                 'title' => $post['post_title'],
                 'post' => $post,
-                'comments' => $comments,
                 'latestPosts' => $latestPosts
 
             ]
@@ -96,7 +87,7 @@ class IndexController extends Controller
     }
 
     /**
-     * Action to save a new comment for a post
+     * Save a new written comment and returns a response via json
      *
      * @param string $commentAuthor
      * @param string $commentEmail
@@ -105,11 +96,39 @@ class IndexController extends Controller
      */
     public function saveCommentAction($commentAuthor, $commentEmail, $commentContent, $postCreatedAt)
     {
-        $commentWriter = new CommentWriter();
+        $jsonData = [];
 
+        $commentWriter = new CommentWriter();
         $commentWriter->setCommentData($commentAuthor, $commentEmail, $commentContent, $postCreatedAt);
 
-        $commentWriter->saveComment();
+        if (!$commentWriter->saveComment()) {
+            $jsonData['success'] = false;
+        }
+        $jsonData['success'] = true;
+
+        echo json_encode($jsonData);
+    }
+
+    /**
+     * Load all saved comments of a post an returns a html-response
+     *
+     * @param string $postIdentifier
+     * @return string
+     */
+    public function getCommentsAction($postIdentifier)
+    {
+        $commentReader = new CommentReader();
+        $commentReader->setPostDirectory($postIdentifier);
+        $comments = $commentReader->getComments();
+
+        $this->view('index/comments-section',
+            [
+                'comments' => $comments
+            ],
+            false
+        );
+
+        return json_encode($this->view->render());
     }
 
     /**
