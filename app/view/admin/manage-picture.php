@@ -56,6 +56,12 @@
                             </tr>
                             <?php
                         }
+                    } else {
+                    ?>
+                        <tr>
+                            <td colspan="4">No images available</td>
+                        </tr>
+                    <?php
                     }
                     ?>
 

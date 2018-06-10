@@ -16,7 +16,6 @@ $( document ).ready(function() {
         });
         simplemde.value(value);
     }
-    $("textarea[name='content']").attr('required', false); $('.CodeMirror textarea').attr('required', true);
 
     /**
      * Let the user confirm a delete action
