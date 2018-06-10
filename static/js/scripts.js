@@ -52,10 +52,11 @@ $( document ).ready(function() {
             data: formData,
             success: function(data) {
                 if(data.success === true) {
-                    console.log(data.success);
                     submitStatusArea.addClass("uk-alert-success");
                     submitStatusText.text("Comment saved");
                 }
+
+                reloadComments(formData.postCreatedAt);
             },
             error: function(xhr, desc, err) {
                 submitStatusArea.addClass("uk-alert-danger");
@@ -66,46 +67,34 @@ $( document ).ready(function() {
         resetFormInput();
     });
 
+    /**
+     * Clearing the input-fields after writing a comment
+     */
     function resetFormInput() {
         $('input#name').val("");
         $('input#mail').val("");
         $('textarea#comment').val("");
     }
 
-    /*
+    /**
+     * Loading the comments of a post via ajax-call
+     *
+     * @param postIdentifier
+     */
     function reloadComments(postIdentifier) {
+        var submitStatusArea = $("div#submit_status");
+        var submitStatusText = $("div#submit_status > p");
+        submitStatusArea.removeClass("uk-hidden");
+
         if (postIdentifier === undefined) {
-            Console.log('Error');
+            submitStatusArea.addClass("uk-alert-danger");
+            submitStatusText.text("Error while loading the comments");
+
             return;
         }
 
-        $.ajax({
-            type 		: 'POST', // define the type of HTTP verb we want to use (POST for our form)
-            url 		: '/index/get-comment', // the url where we want to POST
-            
-            dataType 	: 'json', // what type of data do we expect back from the server
-            encode 		: true
-        })
-        // using the done promise callback
-            .done(function(data) {
-                console.log(data);
-
-                if ( ! data.success) {
-
-
-
-                } else {
-
-                    $('form').append('<div class="alert alert-success">' + data.message + '</div>');
-
-                }
-            })
-            .fail(function(data) {
-
-                // show any errors
-                // best to remove for production
-                console.log(data);
-            });
+        $.get('/index/get-comments/' + postIdentifier, function (data) {
+            $("div#comments_section").html(data);
+        });
     }
-    */
 });

@@ -67,9 +67,6 @@ class IndexController extends Controller
         $postReader->setPostDirectory($post_createdAt);
         $post = $postReader->getPost();
 
-        $commentReader = new CommentReader();
-        $commentReader->setPostDirectory($post_createdAt);
-        $comments = $commentReader->getComments();
 
         $postDirectories = $postReader->readPostDirectories();
 
@@ -86,7 +83,6 @@ class IndexController extends Controller
             [
                 'title' => $post['post_title'],
                 'post' => $post,
-                'comments' => $comments,
                 'latestPosts' => $latestPosts
 
             ]
@@ -111,22 +107,20 @@ class IndexController extends Controller
         echo json_encode($jsonData);
     }
 
-    public function getCommentAction($commentAuthor)
-    {
-        $jsonData = [];
-
-
-        $jsonData['success'] = true;
-
-        return json_encode($jsonData);
-    }
-
     public function getCommentsAction($postIdentifier)
     {
+        $commentReader = new CommentReader();
+        $commentReader->setPostDirectory($postIdentifier);
+        $comments = $commentReader->getComments();
 
-        $data['success'] = false;
+        $this->view('index/comments-section',
+            [
+                'comments' => $comments
+            ],
+            false
+        );
 
-        return json_encode($data);
+        return json_encode($this->view->render());
     }
 
     /**
