@@ -95,21 +95,38 @@ class IndexController extends Controller
         $this->view->render();
     }
 
-    /**
-     * Action to save a new comment for a post
-     *
-     * @param string $commentAuthor
-     * @param string $commentEmail
-     * @param string $commentContent
-     * @param string $postCreatedAt
-     */
+
     public function saveCommentAction($commentAuthor, $commentEmail, $commentContent, $postCreatedAt)
     {
-        $commentWriter = new CommentWriter();
+        $jsonData = [];
 
+        $commentWriter = new CommentWriter();
         $commentWriter->setCommentData($commentAuthor, $commentEmail, $commentContent, $postCreatedAt);
 
-        $commentWriter->saveComment();
+        if (!$commentWriter->saveComment()) {
+            $jsonData['success'] = false;
+        }
+        $jsonData['success'] = true;
+
+        echo json_encode($jsonData);
+    }
+
+    public function getCommentAction($commentAuthor)
+    {
+        $jsonData = [];
+
+
+        $jsonData['success'] = true;
+
+        return json_encode($jsonData);
+    }
+
+    public function getCommentsAction($postIdentifier)
+    {
+
+        $data['success'] = false;
+
+        return json_encode($data);
     }
 
     /**
