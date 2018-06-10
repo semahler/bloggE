@@ -147,7 +147,6 @@ class PictureManager
      */
     protected function getRelativePicturePath($picturePath)
     {
-        $picturePath = str_replace(BASE_DIR, "", $picturePath);
         $picturePath = "/" . $picturePath;
 
         return $picturePath;
